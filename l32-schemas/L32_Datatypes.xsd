@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright 2009 The MITRE Corporation
+    Approved for Public Release: 09-3060. Distribution Unlimited.
+    
+    See L32_ClinicalDocument.xsd for license details
+-->
+<xs:schema targetNamespace="urn:hl7-org:v3"
+        xmlns="urn:hl7-org:v3" 
+        xmlns:xs="http://www.w3.org/2001/XMLSchema"
+        xmlns:sdtc="urn:hl7-org:sdtc"
+        elementFormDefault="qualified">
+    
+    <xs:include schemaLocation="L32_HealthcareProvider.xsd"/>   
+    <xs:include schemaLocation="L32_PersonInformation.xsd"/>   
+    <xs:include schemaLocation="CDA_Datatypes.xsd"/> 
+    
+    <xs:import namespace="urn:hl7-org:sdtc"  schemaLocation="L32_SDTC_Extension.xsd"/>
+    
+    <xs:complexType name="Address">
+        <xs:annotation>
+            <xs:documentation>
+                An address is a collection of parts including street, city, state, and postal code.
+                Country codes shall be recorded using ISO-3166-1 and shall be present for addresses
+                outside of the US.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="streetAddressLine" type="xs:string" maxOccurs="2" />
+            <xs:element name="city" type="xs:string" />
+            <xs:element name="state">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:length value="2"/>                        
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="postalCode">
+                <xs:simpleType>
+                    <xs:restriction base='xs:string'>
+                        <xs:pattern value='[0-9]{5}(-[0-9]{4})?'/>
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+            <xs:element name="country" minOccurs="0">
+                <xs:simpleType>
+                    <xs:restriction base="xs:string">
+                        <xs:length value="2"/>                        
+                    </xs:restriction>
+                </xs:simpleType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:simpleType name="AddressUseValues">
+        <xs:annotation>
+            <xs:documentation>
+                Identifies an address as home, work, or vacation.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">                    
+            <xs:enumeration value="HP"/> <!-- Home Phone/Address -->                   
+            <xs:enumeration value="HV"/> <!-- Vacation Phone/Address -->                   
+            <xs:enumeration value="WP"/> <!-- Work Phone/Address --> 
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="Author">   
+        <xs:annotation>
+            <xs:documentation>
+                Identifies who or what has generated the summarization.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="id" type="InstanceIdentifier"/>          
+            <xs:element name="addr" type="Address" minOccurs="0"/>
+            <xs:element name="telecom" type="PhoneEmail" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="assignedPerson">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="PersonName"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="representedOrganization" type="Organization" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="DateRange">   
+        <xs:annotation>
+            <xs:documentation>
+                An interval of time.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="low" type="DateTime"/>
+            <xs:element name="high" type="DateTime" minOccurs="0"/>
+        </xs:sequence>        
+    </xs:complexType>
+    
+    <xs:complexType name="DateTime"> 
+        <xs:annotation>
+            <xs:documentation>
+                A quantity specifying a point in time between 1/1/1800 and 12/31/2099.
+                The format is yyyymmddhhmmss.  Timezone offset is not included for phase 1.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="value"> 
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="((18|19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01]))((([0-1][0-9])|([2][0-3]))([0-5][0-9])(([0-5][0-9])))?(-\d{4})?"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:complexType name="Entity">
+        <xs:annotation>
+            <xs:documentation>
+                Identifies who or what has generated the summarization.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="id" type="InstanceIdentifier"/>
+            <xs:element name="code" type="ProviderType" minOccurs="0"/>
+            <xs:element name="addr" type="Address" minOccurs="0"/>
+            <xs:element name="telecom" type="PhoneEmail" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="assignedPerson" minOccurs="0">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="name" type="PersonName"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+            <xs:element name="representedOrganization" type="Organization" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="GenericCode">
+        <xs:annotation>
+            <xs:documentation>
+                Includes a code value, display name, the code system id,
+                and the code system name.  
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code">
+            <xs:simpleType>
+                <xs:restriction base="xs:token">
+                    <xs:pattern value="[^\s]+"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="displayName" type="xs:string" use="optional"/>
+        <xs:attribute name="codeSystemName" type="xs:string" use="optional"/>           
+        <xs:attribute name="codeSystem" type="Id" use="optional"/>           
+    </xs:complexType>
+    
+    <xs:simpleType name="Id"> 
+        <xs:annotation>
+            <xs:documentation>
+                A unique identifier that guarantees the global uniqueness
+                of the instance identifier. 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[0-2](\.(0|[1-9][0-9]*))*"/>                                                      <!-- oid ISO Object Identifier-->
+            <xs:pattern value="[0-9a-zA-Z]{8}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{4}-[0-9a-zA-Z]{12}"/>    <!-- uuid DCE Universally unique identifier-->
+            <xs:pattern value="[A-Za-z][A-Za-z0-9\-]*"/>                                                         <!-- ruid -->
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="InformationSource">
+        <xs:annotation>
+            <xs:documentation>
+                Information Source includes information about the Author, which can include
+                an id, name, address, telephone, and email.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="time" type="DateTime"/>
+            <xs:element name="assignedAuthor" type="Author"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="InformantOrPerformer">
+        <xs:annotation>
+            <xs:documentation>
+                A person or organization that is the source of information.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="assignedEntity" type="Entity"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="InstanceIdentifier">   
+        <xs:annotation>
+            <xs:documentation>
+                An identifier that uniquely identifies a thing or object.
+                Examples are object identifier for HL7 RIM objects,
+                medical record number, order id, service catalog item id,
+                Vehicle Identification Number (VIN), etc. Instance
+                identifiers are defined based on ISO object identifiers.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="root" type="Id"/>
+        <xs:attribute name="extension" type="xs:string" use="optional"/>
+    </xs:complexType>
+    
+    <xs:complexType name="L32Module" abstract="true">
+        <xs:annotation>
+            <xs:documentation>
+                The L32Module type is an abstract type that should be replaced 
+                by an xsi:type representing one of the C32 modules.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:complexType>  
+    
+    <xs:complexType name="Organization">
+        <xs:annotation>
+            <xs:documentation>
+                Provides information about the author, entity, or manufacturer organization.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="id" type="InstanceIdentifier" minOccurs="0"/> 
+            <xs:element name="name" type="xs:string"/>
+            <xs:element name="telecom" type="PhoneEmail" minOccurs="0" maxOccurs="2"/>
+            <xs:element name="addr" type="Address" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+   
+    <xs:complexType name="PersonName">
+        <xs:annotation>
+            <xs:documentation>
+                A person name is represented as an optional prefix, given name, family name,
+                and an optional suffix.  The use attribute is fixed to L for legal name.  
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="prefix" type="xs:string" minOccurs="0" />
+            <xs:element name="given" type="xs:string" maxOccurs="2" />
+            <xs:element name="family" type="xs:string" />
+            <xs:element name="suffix" type="xs:string" minOccurs="0" />
+        </xs:sequence>
+        <xs:attribute name="use" type="xs:string" fixed="L" use="optional"/>
+    </xs:complexType>   
+    
+    <xs:complexType name="PhoneEmail"> 
+        <xs:annotation>
+            <xs:documentation>
+                The use attribute shall contain a telecom use value, and the value attribute can contain
+                a telephone number or email address.  The format for a telephone number in international
+                form is: tel:+1-999-999-9999. It uses the 'tel:' URL scheme.  Please see IETF/RFC-3966.
+                Represent an extension by appending ';ext=' at the end of the number. An email address
+                uses the 'mailto:' URL scheme.  Please see IETF/RFC-2368.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="use" type="TelecomUseValues" use="optional"/>
+        <xs:attribute name="value"> 
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:pattern value="tel:\+1-\d{3}-\d{3}-\d{4}((;ext=\d{1,4})?)|mailto:^([0-9a-zA-Z]+[\-._+&amp;])*[\-0-9a-zA-Z]+@([0-9a-zA-Z]+[.])+[a-zA-Z]{2,6}$"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>    
+    </xs:complexType>    
+    
+    <xs:complexType name="StatusCode">
+        <xs:annotation>
+            <xs:documentation>
+                HL7 ActStatusNormal status code options.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="aborted"/>
+                    <xs:enumeration value="completed"/>
+                    <xs:enumeration value="active"/>
+                    <xs:enumeration value="cancelled"/>
+                    <xs:enumeration value="held"/>
+                    <xs:enumeration value="new"/>
+                    <xs:enumeration value="suspended"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+   
+    <xs:simpleType name="TelecomUseValues">
+        <xs:annotation>
+            <xs:documentation>
+                Identifies a phone number or email address as 
+                home, vacation, work, or mobile.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:restriction base="xs:string">                    
+            <xs:enumeration value="HP"/> <!-- Home Phone/Address -->                   
+            <xs:enumeration value="HV"/> <!-- Vacation Phone/Address -->                   
+            <xs:enumeration value="WP"/> <!-- Work Phone/Address -->                
+            <xs:enumeration value="MC"/> <!-- Mobile Phone -->
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:complexType name="TextReference">
+        <xs:annotation>
+            <xs:documentation>
+                The value attribute refers to narrative text.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="reference">
+                <xs:complexType>
+                    <xs:attribute name="value" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="mediaType" type="xs:string" use="optional"/>
+    </xs:complexType>   
+    
+</xs:schema>
