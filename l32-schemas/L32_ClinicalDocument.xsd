@@ -37,17 +37,7 @@
     
     <xs:include schemaLocation="L32_Datatypes.xsd"/> 
     <xs:include schemaLocation="L32_PersonInformation.xsd"/> 
-    <xs:include schemaLocation="L32_Conditions.xsd"/> 
-    <xs:include schemaLocation="L32_Medications.xsd"/> 
-    <xs:include schemaLocation="L32_VitalSigns.xsd"/>
     <xs:include schemaLocation="L32_Results.xsd"/> 
-    <xs:include schemaLocation="L32_Allergies.xsd"/>     
-    <xs:include schemaLocation="L32_Support.xsd"/>      
-    <xs:include schemaLocation="L32_AdvanceDirectives.xsd"/>      
-    <xs:include schemaLocation="L32_Encounters.xsd"/>      
-    <xs:include schemaLocation="L32_Immunizations.xsd"/>      
-    <xs:include schemaLocation="L32_InsuranceProviders.xsd"/>       
-    <xs:include schemaLocation="L32_Procedures.xsd"/> 
     
     <xs:element name="ClinicalDocument" type="DocumentRoot"/>
    

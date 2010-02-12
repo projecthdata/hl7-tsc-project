@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright 2009 The MITRE Corporation
+    Approved for Public Release: 09-3060. Distribution Unlimited.
+    
+    See L32_ClinicalDocument.xsd for license details
+-->
+<xs:schema targetNamespace="urn:hl7-org:v3"
+    xmlns="urn:hl7-org:v3" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:sdtc="urn:hl7-org:sdtc"
+    elementFormDefault="qualified">
+    
+    <xs:include schemaLocation="L32_Datatypes.xsd"/>
+    <xs:include schemaLocation="L32_LanguageSpoken.xsd"/>
+    <xs:include schemaLocation="L32_Support.xsd"/>
+    <xs:import namespace="urn:hl7-org:sdtc" schemaLocation="L32_SDTC_Extension.xsd"/>    
+    
+    <xs:complexType name="PatientInformation">
+        <xs:annotation>
+            <xs:documentation>
+                This represents the overall structure of the C32 Person Information Module. 
+                This data is contained within a recordTarget at the root level, and it includes 
+                a Patient Information Event Entry and Personal Information.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="patientRole">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="id" type="InstanceIdentifier"/>                   
+                        <xs:element name="addr" type="PersonAddress"/>
+                        <xs:element name="telecom" type="PhoneEmail" maxOccurs="unbounded"/>
+                        <xs:element name="patient" type="PersonalInformation"/>                           
+                    </xs:sequence>
+                </xs:complexType> 
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>  
+    
+    <xs:complexType name="PersonalInformation">
+        <xs:sequence>                                    
+            <xs:element name="name" type="PersonName"/>
+            <xs:element name="administrativeGenderCode" type="Gender"/>
+            <xs:element name="birthTime" type="DateTime"/>
+            <xs:element name="maritalStatusCode" type="MaritalStatus" minOccurs="0"/>
+            <xs:element name="religiousAffiliationCode" type="ReligiousAffiliation" minOccurs="0"/>
+            <xs:element name="raceCode" type="Race" minOccurs="0"/>
+            <xs:element ref="sdtc:raceCode" xmlns:sdtc="urn:hl7-org:sdtc" minOccurs="0" maxOccurs="unbounded" />
+            <xs:element name="ethnicGroupCode" type="Ethnicity" minOccurs="0"/>
+            <xs:element name="guardian" type="GuardianContact" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="languageCommunication" type="LanguageSpoken" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType> 
+    
+    <xs:complexType name="PersonAddress">
+        <xs:annotation>
+            <xs:documentation>
+                An extension of Address, the use attribute is required.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="Address">                    
+                <xs:attribute name="use" type="AddressUseValues" use="required"/>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>    
+   
+    <xs:complexType name="Gender">
+        <xs:annotation>
+            <xs:documentation>
+                Administrative sex of the patient, used for linking to insurance information.
+                Coded using the HL7 AdministrativeGenderCode terminology.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="M" />
+                    <xs:enumeration value="F" />
+                    <xs:enumeration value="UN" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="displayName" use="optional"> 
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Male" />
+                    <xs:enumeration value="Female" />
+                    <xs:enumeration value="Undifferentiated" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="codeSystemName" type="xs:string" fixed="HL7 AdministrativeGenderCode" /> 
+        <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.5.1" />
+    </xs:complexType>    
+    
+    <xs:complexType name="MaritalStatus">
+        <xs:annotation>
+            <xs:documentation>
+                The domestic partnership status of a person, used in determining
+                insurance eligibility.  Coded using the HL7 MaritalStatusCode terminology.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="A" />
+                    <xs:enumeration value="D" />
+                    <xs:enumeration value="I" />
+                    <xs:enumeration value="L" />
+                    <xs:enumeration value="M" />
+                    <xs:enumeration value="P" />
+                    <xs:enumeration value="S" />
+                    <xs:enumeration value="T" />
+                    <xs:enumeration value="W" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="displayName" use="optional"> 
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Annulled" />
+                    <xs:enumeration value="Divorced" />
+                    <xs:enumeration value="Interlocutory" />
+                    <xs:enumeration value="Legally Separated" />
+                    <xs:enumeration value="Married" />
+                    <xs:enumeration value="Polygamous" />
+                    <xs:enumeration value="Never Married" />
+                    <xs:enumeration value="Domestic Partner" />
+                    <xs:enumeration value="Widowed" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="codeSystemName" type="xs:string" fixed="HL7 MaritalStatusCode" /> 
+        <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.5.2" />
+    </xs:complexType>    
+    
+    <xs:complexType name="ReligiousAffiliation"> 
+        <xs:annotation>
+            <xs:documentation>
+                The religious preference of the person. Recorded at the discretion of the patient.
+                Coded using the HL7 Religious Affiliation vocabulary.  
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code">
+            <xs:simpleType>
+                <xs:restriction base="xs:integer">
+                    <xs:minInclusive value="1001"/>
+                    <xs:maxInclusive value="1082"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="displayName" type="xs:string" use="optional"/> 
+        <xs:attribute name="codeSystemName" type="xs:string" fixed="ReligiousAffiliation" /> 
+        <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.5.1076" />
+    </xs:complexType>    
+    
+    <xs:complexType name="Race">
+        <xs:annotation>
+            <xs:documentation>
+                Reported at the discretion of the patient, using the CDC Race and Ethnicity 
+                vocabulary.  The L32 limits race options to the five minimum values determined
+                by the Office of Management and Budget.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code"> 
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="1004-1" />
+                    <xs:enumeration value="2028-9" />
+                    <xs:enumeration value="2058-6" />
+                    <xs:enumeration value="2076-8" />
+                    <xs:enumeration value="2106-3" />
+                    <xs:enumeration value="2131-1" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="displayName" use="optional">    
+            <xs:annotation>
+                <xs:documentation source="http://www.whitehouse.gov/omb/fedreg/ombdir15.html">
+                    OFFICE OF MANAGEMENT AND BUDGET                    
+                    Revisions to the Standards for the Classification of Federal Data on Race and Ethnicity
+                </xs:documentation>
+            </xs:annotation>        
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="American Indian or Alaska Native" />
+                    <xs:enumeration value="Asian" />
+                    <xs:enumeration value="Black or African American" />
+                    <xs:enumeration value="Native Hawaiian or Other Pacific Islander" />
+                    <xs:enumeration value="White" />
+                    <xs:enumeration value="Other Race" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="codeSystemName" type="xs:string" fixed="CDC Race and Ethnicity" /> 
+        <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.6.238" />
+    </xs:complexType>    
+   
+    <xs:complexType name="Ethnicity">
+        <xs:annotation>
+            <xs:documentation>
+                Ethnicity extends the concept of race, and is reported at the discretion of the patient.
+                The CDC Race and Ethnicity vocabulary is used.  The L32 limits ethnicity options to the 
+                two minimum values determined by the Office of Management and Budget.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="2135-2" />
+                    <xs:enumeration value="2186-5" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="displayName" use="optional">    
+            <xs:annotation>
+                <xs:documentation source="http://www.whitehouse.gov/omb/fedreg/ombdir15.html">
+                    OFFICE OF MANAGEMENT AND BUDGET                    
+                    Revisions to the Standards for the Classification of Federal Data on Race and Ethnicity
+                </xs:documentation>
+            </xs:annotation>        
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Hispanic or Latino" />
+                    <xs:enumeration value="Not Hispanic or Latino" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="codeSystemName" type="xs:string" fixed="CDC Race and Ethnicity" /> 
+        <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.6.238" />
+    </xs:complexType>   
+    
+</xs:schema>
