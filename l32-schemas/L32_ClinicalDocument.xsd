@@ -59,8 +59,6 @@
             <xs:element name="recordTarget" type="PatientInformation"/>
             <xs:element name="author" type="InformationSource" maxOccurs="unbounded" />
             <xs:element name="custodian" type="Custodian"/>
-            <xs:element name="participant" type="Support" minOccurs="0" maxOccurs="unbounded"/>
-            <xs:element name="documentationOf" type="HealthcareProvider" minOccurs="0" maxOccurs="unbounded"/>
             <xs:element name="component" type="DocumentBody" />
         </xs:sequence>
     </xs:complexType>
