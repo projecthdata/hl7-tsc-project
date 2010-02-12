@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright 2009 The MITRE Corporation
+    Approved for Public Release: 09-3060. Distribution Unlimited.
+    
+    See L32_ClinicalDocument.xsd for license details
+-->
+<xs:schema targetNamespace="urn:hl7-org:v3"
+    xmlns="urn:hl7-org:v3" 
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    xmlns:sdtc="urn:hl7-org:sdtc"
+    elementFormDefault="qualified">
+    
+    <xs:include schemaLocation="L32_Datatypes.xsd"/>
+
+    <xs:complexType name="LanguageSpoken">
+        <xs:annotation>
+            <xs:documentation>
+                This represents the overall structure of the C32 Language Spoken Module. It 
+                contains the primary and secondary languages of communication for the patient.
+                Language is identified as spoken, written, or understood, but proficiency is not
+                recorded. The default language is English. Languages spoken are recorded using 
+                the languageCommunication element within the patient. The languageCommunication 
+                element describes the primary and secondary languages of communication.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="templateId">
+                <xs:complexType>
+                    <xs:attribute name="root" type="Id" fixed="2.16.840.1.113883.3.88.11.32.2"/>                        
+                </xs:complexType>
+            </xs:element>            
+            <xs:element name="languageCode" type="LanguageOfCommunication"/>
+            <xs:element name="modeCode" type="ModeOfCommunication" minOccurs="0"/>
+            <xs:element name="preferenceInd" type="PatientPreference" minOccurs="0"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="LanguageOfCommunication">
+        <xs:annotation>
+            <xs:documentation>
+                The value set is defined by IETF RFC 3066. 
+                The code is composed of a combination of a 2 or 3 letter language code 
+                (defined by ISO 639-2), followed by a hyphen, followed by a 2 letter 
+                country code (defined by ISO 3166). There is no OID for the combined 
+                code. 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code" type="xs:string"/>            
+        <xs:attribute name="displayName" type="xs:string" use="optional"/>
+    </xs:complexType>
+    
+    <xs:complexType name="ModeOfCommunication">
+        <xs:annotation>
+            <xs:documentation>
+                http://www.miforum.net/distillate/rim/vocabulary.htm#C-0-12249-cpt
+                ModeCode is used to indicate only a specific mode of communication 
+                (expressing or receiving written, verbal, or signed communication). 
+                The codes for the modeCode element are from the HL7 LanguageAbilityMode 
+                vocabulary. 
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="ESGN"/>
+                    <xs:enumeration value="ESP"/>
+                    <xs:enumeration value="EWR"/>
+                    <xs:enumeration value="RSGN"/>
+                    <xs:enumeration value="RSP"/>
+                    <xs:enumeration value="RWR"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="displayName" use="optional"> 
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Expressed signed" />
+                    <xs:enumeration value="Expressed spoken" />
+                    <xs:enumeration value="Expressed written" />
+                    <xs:enumeration value="Received signed" />
+                    <xs:enumeration value="Received spoken" />
+                    <xs:enumeration value="Received written" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="codeSystemName" type="xs:string" fixed="LanguageAbilityMode"/>
+        <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.5.60"/>
+    </xs:complexType>
+    
+    <xs:complexType name="PatientPreference">
+        <xs:annotation>
+            <xs:documentation>
+                This is used to indicate the patient's preferred language for communication.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="value">
+            <xs:simpleType>
+                <xs:restriction base="xs:boolean">
+                    <xs:pattern value="true|false"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+
+</xs:schema>
