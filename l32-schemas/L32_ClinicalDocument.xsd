@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+    ***********************************************************************************************
+    * This schema outlines a constrained HITSP C32 v2.3 document.
+    * 
+    * For more information about the L32 please visit http://projecthdata.org
+    *
+    * authors: Kacey Oreal (koreal@mitre.org)
+    *          Shauni Deshmukh (ideshmukh@mitre.org)
+    *
+    * Last Updated: 05 August 2009
+    *
+    ***********************************************************************************************
+    
+    Copyright 2009 The MITRE Corporation
+    Approved for Public Release: 09-3060. Distribution Unlimited.
+    
+    Licensed under the Apache License, Version 2.0 (the "License");
+    you may not use this file except in compliance with the License.
+    You may obtain a copy of the License at
+    
+    http://www.apache.org/licenses/LICENSE-2.0
+    
+    Unless required by applicable law or agreed to in writing, software
+    distributed under the License is distributed on an "AS IS" BASIS,
+    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+    See the License for the specific language governing permissions and
+    limitations under the License.
+    
+    *********************************************************************************************** 
+-->
+<xs:schema targetNamespace="urn:hl7-org:v3"
+           xmlns="urn:hl7-org:v3" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:sdtc="urn:hl7-org:sdtc"
+           elementFormDefault="qualified"> 
+    
+    <xs:include schemaLocation="L32_Datatypes.xsd"/> 
+    <xs:include schemaLocation="L32_PersonInformation.xsd"/> 
+    <xs:include schemaLocation="L32_Conditions.xsd"/> 
+    <xs:include schemaLocation="L32_Medications.xsd"/> 
+    <xs:include schemaLocation="L32_VitalSigns.xsd"/>
+    <xs:include schemaLocation="L32_Results.xsd"/> 
+    <xs:include schemaLocation="L32_Allergies.xsd"/>     
+    <xs:include schemaLocation="L32_Support.xsd"/>      
+    <xs:include schemaLocation="L32_AdvanceDirectives.xsd"/>      
+    <xs:include schemaLocation="L32_Encounters.xsd"/>      
+    <xs:include schemaLocation="L32_Immunizations.xsd"/>      
+    <xs:include schemaLocation="L32_InsuranceProviders.xsd"/>       
+    <xs:include schemaLocation="L32_Procedures.xsd"/> 
+    
+    <xs:element name="ClinicalDocument" type="DocumentRoot"/>
+   
+    <xs:complexType name="DocumentRoot">
+        <xs:annotation>
+            <xs:documentation>
+                The Document Root is the model for an L32 Clinical Document.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="typeId" type="RootTypeId"/> 
+            <xs:element name="templateId" type="RootTemplateId" minOccurs="2" maxOccurs="2"/>
+            <xs:element name="id" type="InstanceIdentifier" />
+            <xs:element name="code" type="RootCode" />
+            <xs:element name="title" type="xs:string" minOccurs="0" />
+            <xs:element name="effectiveTime" type="DateTime"/>
+            <xs:element name="confidentialityCode" type="ConfidentialityCode" />
+            <xs:element name="languageCode" type="LanguageCode"/>
+            <xs:element name="recordTarget" type="PatientInformation"/>
+            <xs:element name="author" type="InformationSource" maxOccurs="unbounded" />
+            <xs:element name="custodian" type="Custodian"/>
+            <xs:element name="participant" type="Support" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="documentationOf" type="HealthcareProvider" minOccurs="0" maxOccurs="unbounded"/>
+            <xs:element name="component" type="DocumentBody" />
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="DocumentBody">
+        <xs:annotation>
+            <xs:documentation>
+                The Document Body includes the components for each C32 component module.
+                The L32Module type is an abstract type that should be replaced by an xsi:type 
+                representing one of the C32 modules.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="structuredBody">
+                <xs:complexType>
+                    <xs:sequence>
+                            <xs:element name="component" type="L32Module" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:complexType name="RootTypeId">
+        <xs:annotation>
+            <xs:documentation>
+                Including this id at the root level asserts conformance to the CDA.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="root" type="Id" fixed="2.16.840.1.113883.1.3"/>
+        <xs:attribute name="extension" type="xs:string" fixed="POCD_HD000040"/>
+    </xs:complexType>     
+    
+    <xs:complexType name="RootTemplateId">
+        <xs:annotation>
+            <xs:documentation>
+                Including this templateId at the root level asserts conformance to the C32 specification.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="root">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="2.16.840.1.113883.10.20.1"/>        <!-- CCD -->
+                    <xs:enumeration value="2.16.840.1.113883.3.88.11.32.1"/>   <!-- C32 -->
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="assigningAuthorityName" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="CCD"/>
+                    <xs:enumeration value="HITSP/C32"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>    
+    
+    <xs:complexType name="RootCode"> 
+        <xs:annotation>
+            <xs:documentation>
+                Including this code at the root level asserts conformance to the CCD.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code" type="xs:string" fixed="34133-9"/>
+        <xs:attribute name="displayName" type="xs:string" fixed="Summarization of episode note"/>
+        <xs:attribute name="codeSystemName" type="xs:string" fixed="LOINC" /> 
+        <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.6.1" />
+    </xs:complexType>    
+    
+    <xs:complexType name="ConfidentialityCode">
+        <xs:annotation>
+            <xs:documentation>
+                CDA confidentiality code
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="N" />
+                    <xs:enumeration value="R" />
+                    <xs:enumeration value="V" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="displayName" use="optional"> 
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="Normal" />
+                    <xs:enumeration value="Restricted" />
+                    <xs:enumeration value="Very Restricted" />
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.5.25" />
+    </xs:complexType>
+    
+    
+    <xs:complexType name="LanguageCode">
+        <xs:annotation>
+            <xs:documentation>
+                The L32 fixes the document language to english.
+                The CCD specifies that is to be in the form nn or nn-CC.
+                nn portion is ISO-639-1 language code in lower case.
+                CC portion is ISO-3166 country code in upper case.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:attribute name="code" type="xs:string" fixed="en-US"/>
+    </xs:complexType>
+    
+    <xs:complexType name="Custodian">
+        <xs:annotation>
+            <xs:documentation>
+                CDA R2 requires that a document have a defined custodian.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="assignedCustodian"> 
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="representedCustodianOrganization" type="CustodianOrganization"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>    
+    
+    <xs:complexType name="CustodianOrganization">
+        <xs:annotation>
+            <xs:documentation>
+                The organization responsible for generating the data in this document.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:restriction base="Organization">
+                <xs:sequence>
+                    <xs:element name="id" type="InstanceIdentifier" minOccurs="1"/> 
+                    <xs:element name="name" type="xs:string"/>
+                    <xs:element name="telecom" type="PhoneEmail" minOccurs="0"/> 
+                    <xs:element name="addr" type="Address" minOccurs="0"/>
+                </xs:sequence>
+            </xs:restriction>
+        </xs:complexContent>        
+    </xs:complexType>
+   
+</xs:schema>

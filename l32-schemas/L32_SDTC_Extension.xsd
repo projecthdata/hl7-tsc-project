@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- 
+    Copyright 2009 The MITRE Corporation
+    Approved for Public Release: 09-3060. Distribution Unlimited.
+    
+    See L32_ClinicalDocument.xsd for license details
+-->
+<xs:schema targetNamespace="urn:hl7-org:sdtc"    
+    xmlns="urn:hl7-org:sdtc"
+    xmlns:L32="urn:hl7-org:v3"
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    elementFormDefault="qualified">    
+    
+    <xs:import namespace="urn:hl7-org:v3"  schemaLocation="L32_PersonInformation.xsd"/> 
+    <xs:import namespace="urn:hl7-org:v3"  schemaLocation="L32_Datatypes.xsd"/>
+    
+    <xs:annotation>
+        <xs:documentation>
+            This sdtc namespace contains the element declarations that HITSP has used in extending the HL7 CDA.
+        </xs:documentation>
+    </xs:annotation>
+    
+    <xs:complexType name="ProviderEntity">        
+        <xs:annotation>
+            <xs:documentation>
+                Used in the Healthcare Provider module, it extends the Entity data type with an identifier used
+                by the provider to identify the patient's medical record.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexContent>
+            <xs:extension base="L32:Entity">
+                <xs:sequence>
+                    <xs:element name="patient" type="SdtcPatient" minOccurs="0"/>
+                </xs:sequence>
+            </xs:extension>
+        </xs:complexContent>
+    </xs:complexType>
+    
+    <xs:complexType name="SdtcPatient">        
+        <xs:annotation>
+            <xs:documentation>
+                The sdtc:patient extension element allows for the patient identifier used by a given provider to be 
+                reported. The provider in their role as an assigned entity is related to the patient.
+            </xs:documentation>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="id" type="L32:InstanceIdentifier"/>
+        </xs:sequence>
+    </xs:complexType>
+    
+    <xs:element name="raceCode" type="L32:Race"> 
+        <xs:annotation>
+            <xs:documentation>
+                The raceCode extension allows for multiple races to be reported for a patient. 
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+    <xs:element name="birthTime" type="L32:DateTime">
+        <xs:annotation>
+            <xs:documentation>
+                The sdtc:birthTime element allows for the birth date of any person to be recorded. The purpose of 
+                this extension is to allow the recording of the subscriber or member of a health plan in cases where
+                the health plan eligibility system has different information on file than the provider does for the 
+                patient. This element appears after the name of the person.
+            </xs:documentation>
+        </xs:annotation>
+    </xs:element>
+    
+</xs:schema>
