@@ -75,7 +75,7 @@
             <xs:element name="structuredBody">
                 <xs:complexType>
                     <xs:sequence>
-                            <xs:element name="component" type="L32Module" maxOccurs="unbounded"/>
+                            <xs:element name="component" type="Results" maxOccurs="unbounded"/>
                     </xs:sequence>
                 </xs:complexType>
             </xs:element>

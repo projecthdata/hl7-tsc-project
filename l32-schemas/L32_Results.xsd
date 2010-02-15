@@ -22,29 +22,27 @@
                 This data should be included in a component tag with an xsi:type="Results" attribute.
             </xs:documentation>
         </xs:annotation>
-        <xs:complexContent>
-            <xs:extension base="L32Module">
-                <xs:sequence>
-                    <xs:element name="section">
-                        <xs:complexType>
-                            <xs:sequence>
-                                <xs:element name="templateId" type="ResultSectionTemplateId" maxOccurs="unbounded"/>
-                                <xs:element name="code" type="ResultsCode"/>
-                                <xs:element name="title" type="xs:string" fixed="Results"/>
-                                <xs:element name="text" type="StrucDoc.Text"/>
-                                <xs:element name="entry" maxOccurs="unbounded">
-                                    <xs:complexType>
-                                        <xs:sequence>
-                                            <xs:element name="organizer" type="ResultOrganizer" maxOccurs="unbounded"/>
-                                        </xs:sequence>
-                                    </xs:complexType>
-                                </xs:element>
-                            </xs:sequence>
-                        </xs:complexType>
-                    </xs:element>
-                </xs:sequence>
-            </xs:extension>
-        </xs:complexContent>
+
+        <xs:sequence>
+            <xs:element name="section">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="templateId" type="ResultSectionTemplateId" maxOccurs="unbounded"/>
+                        <xs:element name="code" type="ResultsCode"/>
+                        <xs:element name="title" type="xs:string" fixed="Results"/>
+                        <xs:element name="text" type="StrucDoc.Text"/>
+                        <xs:element name="entry" maxOccurs="unbounded">
+                            <xs:complexType>
+                                <xs:sequence>
+                                    <xs:element name="organizer" type="ResultOrganizer" maxOccurs="unbounded"/>
+                                </xs:sequence>
+                            </xs:complexType>
+                        </xs:element>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+
     </xs:complexType>    
     
     <xs:complexType name="ResultSectionTemplateId">

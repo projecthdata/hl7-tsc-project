@@ -206,15 +206,6 @@
         <xs:attribute name="extension" type="xs:string" use="optional"/>
     </xs:complexType>
     
-    <xs:complexType name="L32Module" abstract="true">
-        <xs:annotation>
-            <xs:documentation>
-                The L32Module type is an abstract type that should be replaced 
-                by an xsi:type representing one of the C32 modules.
-            </xs:documentation>
-        </xs:annotation>
-    </xs:complexType>  
-    
     <xs:complexType name="Organization">
         <xs:annotation>
             <xs:documentation>
