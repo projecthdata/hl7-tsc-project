@@ -28,15 +28,17 @@
                     <xs:element name="section">
                         <xs:complexType>
                             <xs:sequence>
-                                <xs:element name="templateId">
-                                    <xs:complexType>
-                                        <xs:attribute name="root" type="Id" fixed="2.16.840.1.113883.10.20.1.14"/>
-                                    </xs:complexType>
-                                </xs:element>
+                                <xs:element name="templateId" type="ResultSectionTemplateId" maxOccurs="unbounded"/>
                                 <xs:element name="code" type="ResultsCode"/>
                                 <xs:element name="title" type="xs:string" fixed="Results"/>
                                 <xs:element name="text" type="StrucDoc.Text"/>
-                                <xs:element name="entry" type="ResultEventEntry" maxOccurs="unbounded"/>
+                                <xs:element name="entry" maxOccurs="unbounded">
+                                    <xs:complexType>
+                                        <xs:sequence>
+                                            <xs:element name="organizer" type="ResultOrganizer" maxOccurs="unbounded"/>
+                                        </xs:sequence>
+                                    </xs:complexType>
+                                </xs:element>
                             </xs:sequence>
                         </xs:complexType>
                     </xs:element>
@@ -44,6 +46,61 @@
             </xs:extension>
         </xs:complexContent>
     </xs:complexType>    
+    
+    <xs:complexType name="ResultSectionTemplateId">
+        <xs:attribute name="root">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="2.16.840.1.113883.10.20.15.2.6"/> <!-- TB Results Section -->
+                    <xs:enumeration value="2.16.840.1.113883.10.20.1.14"/> <!-- CCD Results -->
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="assigningAuthorityName" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="HL7"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:complexType name="ResultOrganizerTemplateId">
+        <xs:attribute name="root">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="2.16.840.1.113883.10.20.15.3.21"/> <!-- TB Results Organizer -->
+                    <xs:enumeration value="2.16.840.1.113883.10.20.1.32"/> <!-- CCD Results Organizer -->
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+        <xs:attribute name="assigningAuthorityName" use="optional">
+            <xs:simpleType>
+                <xs:restriction base="xs:string">
+                    <xs:enumeration value="HL7"/>
+                </xs:restriction>
+            </xs:simpleType>
+        </xs:attribute>
+    </xs:complexType>
+    
+    <xs:complexType name="ResultOrganizer">
+        <xs:sequence>
+            <xs:element name="templateId" type="ResultOrganizerTemplateId" maxOccurs="unbounded"/>
+            <xs:element name="id" type="InstanceIdentifier"/>
+            <xs:element name="code" type="ResultsCode"/>
+            <xs:element name="statusCode" type="StatusCode"/>
+            <xs:element name="effectiveTime" type="DateRange"/>
+            <xs:element name="component">
+                <xs:complexType>
+                    <xs:sequence>
+                        <xs:element name="observation" type="ResultObservation" maxOccurs="unbounded"/>
+                    </xs:sequence>
+                </xs:complexType>
+            </xs:element>
+        </xs:sequence>
+        <xs:attribute name="classCode" fixed="BATTERY"/>
+        <xs:attribute name="moodCode" fixed="EVN"/>
+    </xs:complexType>
     
     <xs:complexType name="ResultsCode">
         <xs:annotation>
@@ -56,20 +113,9 @@
         <xs:attribute name="displayName" type="xs:string" fixed="Relevant diagnostic tests and/or laboratory data"/>
         <xs:attribute name="codeSystemName" type="xs:string" fixed="LOINC" /> 
         <xs:attribute name="codeSystem" type="xs:string" fixed="2.16.840.1.113883.6.1" />
-    </xs:complexType>    
-    
-    <xs:complexType name="ResultEventEntry">
-        <xs:annotation>
-            <xs:documentation>
-                A Result entry.
-            </xs:documentation>
-        </xs:annotation>
-        <xs:sequence>
-            <xs:element name="observation" type="ResultEntry" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>    
-    
-    <xs:complexType name="ResultEntry">
+    </xs:complexType>
+      
+    <xs:complexType name="ResultObservation">
         <xs:annotation>
             <xs:documentation>
                 A Result observation.
@@ -82,7 +128,7 @@
                         <xs:simpleType>
                             <xs:restriction base="Id">
                                 <xs:enumeration value="2.16.840.1.113883.10.20.1.31"/>        <!-- CCD -->
-                                <xs:enumeration value="2.16.840.1.113883.3.88.11.32.16"/>   <!-- C32 -->
+                                <xs:enumeration value="2.16.840.1.113883.10.20.15.3.13"/>   <!-- TB Result observation -->
                             </xs:restriction>
                         </xs:simpleType>
                     </xs:attribute>

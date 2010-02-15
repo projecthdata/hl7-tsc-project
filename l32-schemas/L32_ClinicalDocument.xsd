@@ -93,24 +93,17 @@
     </xs:complexType>     
     
     <xs:complexType name="RootTemplateId">
-        <xs:annotation>
-            <xs:documentation>
-                Including this templateId at the root level asserts conformance to the C32 specification.
-            </xs:documentation>
-        </xs:annotation>
         <xs:attribute name="root">
             <xs:simpleType>
                 <xs:restriction base="xs:string">
-                    <xs:enumeration value="2.16.840.1.113883.10.20.1"/>        <!-- CCD -->
-                    <xs:enumeration value="2.16.840.1.113883.3.88.11.32.1"/>   <!-- C32 -->
+                    <xs:enumeration value="2.16.840.1.113883.10.20.15.2.6.1.1.1.1.1.2.3"/>        <!-- CDA R2 Tuberculosis follow up progress note -->
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
         <xs:attribute name="assigningAuthorityName" use="optional">
             <xs:simpleType>
                 <xs:restriction base="xs:string">
-                    <xs:enumeration value="CCD"/>
-                    <xs:enumeration value="HITSP/C32"/>
+                    <xs:enumeration value="HL7"/>
                 </xs:restriction>
             </xs:simpleType>
         </xs:attribute>
