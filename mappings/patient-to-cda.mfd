@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="13">
+	<component name="defaultmap1" blackbox="0" editable="1">
+		<properties SelectedLanguage="xslt"/>
+		<structure>
+			<children>
+				<component name="XML DateTime to HL7 TS" library="HL7" blackbox="0" uid="37" kind="19" visible="0">
+					<view ltx="398" lty="60" rbx="501" rby="77"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="arg" inpkey="154235800" componentid="20"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="result" outkey="154236072" componentid="19"/>
+						</root>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="1" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view rbx="313" rby="795"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace uid="http://projecthdata.org/hdata/schemas/2009/06/core"/>
+									<namespace/>
+									<namespace uid="http://projecthdata.org/hdata/schemas/2009/06/patient_information"/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="3" expanded="1">
+								<entry name="document" ns="3" expanded="1">
+									<entry name="patient" ns="2" expanded="1">
+										<entry name="name">
+											<entry name="title" outkey="85119032"/>
+											<entry name="given" outkey="77679808"/>
+											<entry name="lastname" outkey="87480176"/>
+											<entry name="suffix" outkey="83734552"/>
+										</entry>
+										<entry name="address">
+											<entry name="streetAddress" outkey="154349104"/>
+											<entry name="city" outkey="154378880"/>
+											<entry name="stateOrProvince" outkey="87858168"/>
+											<entry name="zip" outkey="87833952"/>
+											<entry name="country" outkey="83786184"/>
+										</entry>
+										<entry name="telecom" outkey="67708136">
+											<entry name="value" ns="1" type="attribute" outkey="154349416"/>
+											<entry name="use" ns="1" type="attribute" outkey="154259400"/>
+										</entry>
+										<entry name="gender" ns="2">
+											<entry name="code" ns="1" type="attribute" outkey="83775456"/>
+											<entry name="codeSystem" ns="1" type="attribute" outkey="80215792"/>
+											<entry name="codeSystemName" ns="1" type="attribute" outkey="83748872"/>
+											<entry name="displayName" ns="1" type="attribute" outkey="77680176"/>
+										</entry>
+										<entry name="language" ns="2" expanded="1"/>
+										<entry name="birthtime" ns="2" outkey="80214896"/>
+										<entry name="maritialStatus" ns="2">
+											<entry name="code" ns="1" type="attribute" outkey="88033696"/>
+											<entry name="codeSystem" ns="1" type="attribute" outkey="154375080"/>
+											<entry name="codeSystemName" ns="1" type="attribute" outkey="80190928"/>
+											<entry name="displayName" ns="1" type="attribute" outkey="83732936"/>
+										</entry>
+										<entry name="race" ns="2">
+											<entry name="code" ns="1" type="attribute" outkey="88026376"/>
+											<entry name="codeSystem" ns="1" type="attribute" outkey="154076704"/>
+											<entry name="codeSystemName" ns="1" type="attribute" outkey="154168440"/>
+											<entry name="displayName" ns="1" type="attribute" outkey="154320120"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\..\hData\schemas\2009\06\patient.xsd" inputinstance="..\..\lab-cp\hdata-examples\simple\patient_information\1.xml" outputinstance="..\..\lab-cp\hdata-examples\simple\patient_information\1.xml" instanceroot="{http://projecthdata.org/hdata/schemas/2009/06/patient_information}patient" userdefinedschemalocation="Z:/projects/hData/schemas/2009/06/patient.xsd"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="559" lty="2" rbx="1013" rby="792"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace uid="urn:hl7-org:v3"/>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="2" expanded="1">
+								<entry name="document" ns="2" expanded="1">
+									<entry name="ClinicalDocument" expanded="1">
+										<entry name="recordTarget" expanded="1">
+											<entry name="patientRole" expanded="1">
+												<entry name="id" expanded="1"/>
+												<entry name="addr">
+													<entry name="streetAddressLine" inpkey="154131376"/>
+													<entry name="city" inpkey="154131496"/>
+													<entry name="state" inpkey="154131976"/>
+													<entry name="postalCode" inpkey="154132456"/>
+													<entry name="country" inpkey="154132096"/>
+												</entry>
+												<entry name="telecom" inpkey="154096472" expanded="1">
+													<entry name="use" ns="1" type="attribute" inpkey="154130656"/>
+													<entry name="value" ns="1" type="attribute" inpkey="154130776"/>
+												</entry>
+												<entry name="patient" expanded="1">
+													<entry name="name">
+														<entry name="prefix" inpkey="154132216"/>
+														<entry name="given" inpkey="154132336"/>
+														<entry name="family" inpkey="154131736"/>
+														<entry name="suffix" inpkey="154131616"/>
+													</entry>
+													<entry name="administrativeGenderCode" expanded="1">
+														<entry name="code" ns="1" type="attribute" inpkey="154130896"/>
+														<entry name="displayName" ns="1" type="attribute" inpkey="154131016"/>
+														<entry name="codeSystemName" ns="1" type="attribute" inpkey="154131136"/>
+														<entry name="codeSystem" ns="1" type="attribute" inpkey="154131256"/>
+													</entry>
+													<entry name="birthTime" expanded="1">
+														<entry name="value" ns="1" type="attribute" inpkey="154132696"/>
+													</entry>
+													<entry name="maritalStatusCode" expanded="1">
+														<entry name="code" ns="1" type="attribute" inpkey="154131856"/>
+														<entry name="displayName" ns="1" type="attribute" inpkey="154132576"/>
+														<entry name="codeSystemName" ns="1" type="attribute" inpkey="154132816"/>
+														<entry name="codeSystem" ns="1" type="attribute" inpkey="154132936"/>
+													</entry>
+													<entry name="raceCode" expanded="1">
+														<entry name="code" ns="1" type="attribute" inpkey="154420528"/>
+														<entry name="displayName" ns="1" type="attribute" inpkey="154695872"/>
+														<entry name="codeSystemName" ns="1" type="attribute" inpkey="154757688"/>
+														<entry name="codeSystem" ns="1" type="attribute" inpkey="154210848"/>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\l32-schemas\L32_ClinicalDocument.xsd" outputinstance="..\l32-schemas\L32_ClinicalDocument.xml" instanceroot="{urn:hl7-org:v3}ClinicalDocument" userdefinedschemalocation="Z:/projects/hl7-tsc-project/l32-schemas/L32_ClinicalDocument.xsd"/>
+						<wsdl/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="67708136">
+						<edges>
+							<edge vertexkey="154096472" edgekey="154893336"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="77679808">
+						<edges>
+							<edge vertexkey="154132336" edgekey="154379800"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="77680176">
+						<edges>
+							<edge vertexkey="154131016" edgekey="154177864"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="80190928">
+						<edges>
+							<edge vertexkey="154132816" edgekey="154177064"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="80214896">
+						<edges>
+							<edge vertexkey="154235800" edgekey="154214920"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="80215792">
+						<edges>
+							<edge vertexkey="154131256" edgekey="154289200"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="83732936">
+						<edges>
+							<edge vertexkey="154132576" edgekey="154176984"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="83734552">
+						<edges>
+							<edge vertexkey="154131616" edgekey="154288288"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="83748872">
+						<edges>
+							<edge vertexkey="154131136" edgekey="154141128"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="83775456">
+						<edges>
+							<edge vertexkey="154130896" edgekey="154294720"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="83786184">
+						<edges>
+							<edge vertexkey="154132096" edgekey="154381152"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85119032">
+						<edges>
+							<edge vertexkey="154132216" edgekey="154348384"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="87480176">
+						<edges>
+							<edge vertexkey="154131736" edgekey="154233264"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="87833952">
+						<edges>
+							<edge vertexkey="154132456" edgekey="154381480"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="87858168">
+						<edges>
+							<edge vertexkey="154131976" edgekey="154381832"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="88026376">
+						<edges>
+							<edge vertexkey="154420528" edgekey="154707392"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="88033696">
+						<edges>
+							<edge vertexkey="154131856" edgekey="154177224"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154076704">
+						<edges>
+							<edge vertexkey="154210848" edgekey="154721016"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154168440">
+						<edges>
+							<edge vertexkey="154757688" edgekey="154303384"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154236072">
+						<edges>
+							<edge vertexkey="154132696" edgekey="154177304"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154259400">
+						<edges>
+							<edge vertexkey="154130656" edgekey="87496208"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154320120">
+						<edges>
+							<edge vertexkey="154695872" edgekey="154110408"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154349104">
+						<edges>
+							<edge vertexkey="154131376" edgekey="89672472"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154349416">
+						<edges>
+							<edge vertexkey="154130776" edgekey="154381064"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154375080">
+						<edges>
+							<edge vertexkey="154132936" edgekey="154177144"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="154378880">
+						<edges>
+							<edge vertexkey="154131496" edgekey="154218320"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>
