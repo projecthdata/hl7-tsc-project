@@ -11,6 +11,8 @@
     </path>
     
     <target name="run-pipeline">
-        <java classname="com.xmlcalabash.drivers.Main" classpathref="class.path"/>
+        <java classname="com.xmlcalabash.drivers.Main" fork="true" classpathref="class.path">
+            <arg value="pipeline.xpl"/>
+        </java>
     </target>
 </project>
