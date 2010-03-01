@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<project name="hData Pipeline" default="run-pipeline" basedir=".">
+    <description>
+        Transform hData Records to CDA and back again
+    </description>
+    
+    <path id="class.path">
+       <fileset dir="lib">
+         <include name="**/*.jar"/>
+       </fileset>
+    </path>
+    
+    <target name="run-pipeline">
+        <java classname="com.xmlcalabash.drivers.Main" classpathref="class.path"/>
+    </target>
+</project>
