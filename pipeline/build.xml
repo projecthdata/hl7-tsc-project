@@ -12,6 +12,7 @@
     
     <target name="run-pipeline">
         <java classname="com.xmlcalabash.drivers.Main" fork="true" classpathref="class.path">
+            <arg value="--debug"/>
             <arg value="pipeline.xpl"/>
         </java>
     </target>
