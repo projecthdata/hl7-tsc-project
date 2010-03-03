@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<p:declare-step version="1.0" xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step">
+<p:declare-step version="1.0" xmlns:p="http://www.w3.org/ns/xproc" xmlns:c="http://www.w3.org/ns/xproc-step" xmlns:cda="urn:hl7-org:v3">
   <p:input port="source"/>
   <p:output port="result"/>
   
@@ -9,7 +9,7 @@
         <p:empty/>
     </p:with-option>
   </p:directory-list>
-  <p:for-each>
+  <p:for-each name="translate-patients">
       <p:iteration-source select="//c:file"/>
       <p:variable name="fileName" select="c:file/@name"/>
       <p:load>
@@ -26,5 +26,13 @@
         </p:input>
       </p:xslt>
   </p:for-each>
-  <p:wrap-sequence wrapper="ClinicalDocument"/>
+  <p:filter select="//cda:patientRole" name="filter-patient"/>
+  <p:insert position="last-child" match="/cda:ClinicalDocument/cda:recordTarget">
+      <p:input port="insertion">
+          <p:pipe step="filter-patient" port="result"/>
+      </p:input>
+      <p:input port="source">
+          <p:document href="StubCDA.xml"/>
+      </p:input>
+  </p:insert>
 </p:declare-step>
