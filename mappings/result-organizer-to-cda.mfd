@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="13">
+	<component name="defaultmap1" blackbox="0" editable="1">
+		<properties SelectedLanguage="xslt"/>
+		<structure>
+			<children>
+				<component name="XML DateTime to HL7 TS" library="HL7" blackbox="0" uid="37" kind="19" visible="0">
+					<view ltx="199" lty="735" rbx="302" rby="752"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="arg" inpkey="105054840" componentid="20"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="result" outkey="105044840" componentid="19"/>
+						</root>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="410" rbx="977" rby="741"/>
+					<data>
+						<root scrollposition="99">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="urn:hl7-org:v3"/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="2" expanded="1">
+								<entry name="document" ns="2" expanded="1">
+									<entry name="ClinicalDocument" ns="1" expanded="1">
+										<entry name="component" ns="1" expanded="1">
+											<entry name="structuredBody" ns="1" expanded="1">
+												<entry name="component" ns="1" expanded="1">
+													<entry name="section" ns="1" expanded="1">
+														<entry name="entry" ns="1" expanded="1">
+															<entry name="organizer" ns="1" expanded="1">
+																<entry name="id" ns="1" expanded="1">
+																	<entry name="root" type="attribute" inpkey="110190824"/>
+																	<entry name="extension" type="attribute" inpkey="110134864"/>
+																</entry>
+																<entry name="code" ns="1">
+																	<entry name="code" type="attribute" inpkey="110135120"/>
+																	<entry name="displayName" type="attribute" inpkey="110135376"/>
+																	<entry name="codeSystemName" type="attribute" inpkey="110135632"/>
+																	<entry name="codeSystem" type="attribute" inpkey="110135888"/>
+																</entry>
+																<entry name="statusCode" ns="1" expanded="1">
+																	<entry name="code" type="attribute" inpkey="110136104"/>
+																</entry>
+																<entry name="effectiveTime" ns="1" expanded="1">
+																	<entry name="high" ns="1" expanded="1">
+																		<entry name="value" type="attribute" inpkey="110107000"/>
+																	</entry>
+																</entry>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\l32-schemas\L32_ClinicalDocument.xsd" outputinstance="..\l32-schemas\L32_ClinicalDocument.xml" instanceroot="{urn:hl7-org:v3}ClinicalDocument" userdefinedschemalocation="Z:/projects/hl7-tsc-project/l32-schemas/L32_ClinicalDocument.xsd"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="1" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="2" lty="469" rbx="302" rby="669"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://projecthdata.org/hdata/schemas/2009/06/result_organizer"/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="2" expanded="1">
+								<entry name="document" ns="2" expanded="1">
+									<entry name="resultOrganizer" ns="1" expanded="1">
+										<entry name="organizerId" ns="1" expanded="1">
+											<entry name="root" type="attribute" outkey="110145496"/>
+											<entry name="extension" type="attribute" outkey="110145712"/>
+										</entry>
+										<entry name="statusCode" ns="1" expanded="1">
+											<entry name="code" type="attribute" outkey="110146176"/>
+										</entry>
+										<entry name="code" ns="1">
+											<entry name="code" type="attribute" outkey="110146424"/>
+											<entry name="codeSystem" type="attribute" outkey="110146672"/>
+											<entry name="codeSystemName" type="attribute" outkey="110147136"/>
+											<entry name="displayName" type="attribute" outkey="110145928"/>
+										</entry>
+										<entry name="effectiveTime" ns="1" outkey="110136616"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\hdata-schemas\result_organizer.xsd" outputinstance="..\hdata-schemas\result_organizer.xml" instanceroot="{http://projecthdata.org/hdata/schemas/2009/06/result_organizer}resultOrganizer" userdefinedschemalocation="Z:/projects/hl7-tsc-project/hdata-schemas/result_organizer.xsd"/>
+						<wsdl/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="105044840">
+						<edges>
+							<edge vertexkey="110107000" edgekey="110144920"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110136616">
+						<edges>
+							<edge vertexkey="105054840" edgekey="110189648"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110145496">
+						<edges>
+							<edge vertexkey="110190824" edgekey="110263576"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110145712">
+						<edges>
+							<edge vertexkey="110134864" edgekey="104686616"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110145928">
+						<edges>
+							<edge vertexkey="110135376" edgekey="110125688"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110146176">
+						<edges>
+							<edge vertexkey="110136104" edgekey="110184872"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110146424">
+						<edges>
+							<edge vertexkey="110135120" edgekey="110184680"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110146672">
+						<edges>
+							<edge vertexkey="110135888" edgekey="110185496"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="110147136">
+						<edges>
+							<edge vertexkey="110135632" edgekey="110186264"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>
