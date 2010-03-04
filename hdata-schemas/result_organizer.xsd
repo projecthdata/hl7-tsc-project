@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema"  elementFormDefault="qualified" 
+    targetNamespace="http://projecthdata.org/hdata/schemas/2009/06/result_organizer" 
+    xmlns:ro="http://projecthdata.org/hdata/schemas/2009/06/result_organizer" 
+    xmlns:result="http://projecthdata.org/hdata/schemas/2009/06/result" 
+    xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    
+    <xs:import namespace="http://projecthdata.org/hdata/schemas/2009/06/core" schemaLocation="core_data_types.xsd"/>
+    <xs:import namespace="http://projecthdata.org/hdata/schemas/2009/06/result" schemaLocation="result_types.xsd"/>
+    
+    <xs:element name="resultOrganizer">
+        <xs:annotation>
+            <xs:documentation>
+                This section is used to describe test result organizers.
+                
+            </xs:documentation>
+        </xs:annotation>
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element name="organizerId" type="core:instanceIdentifier"/>
+                <xs:element name="statusCode" type="core:statusCode"/>
+                <xs:element name="code" type="result:resultType"/>
+                <xs:element name="effectiveTime" type="xs:dateTime"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+</xs:schema>
