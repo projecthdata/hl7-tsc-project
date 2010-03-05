@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<patient xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/patient_information ../../../../hData/schemas/2009/06/patient.xsd"
+ xmlns="http://projecthdata.org/hdata/schemas/2009/06/patient_information"
+ xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    <core:name>
+        <core:given>Betty</core:given>
+        <core:given>A</core:given>
+        <core:lastname>Rubble</core:lastname>
+    </core:name>
+    <core:address>
+        <core:streetAddress>4245 Bedrock Lane</core:streetAddress>
+        <core:city>Rockport</core:city>
+        <core:stateOrProvince>GA</core:stateOrProvince>
+        <core:zip>30303</core:zip>
+        <core:country>US</core:country>
+    </core:address>
+    <core:telecom value="70-561-6516" type="phone-landline" use="home"/>
+    <id>JR1002</id>
+    <gender codeSystemName="HL7 AdministrativeGenderCode" codeSystem="2.16.840.1.113883.5.1" code="F" displayName="Female"/>
+    <birthtime>1955-04-12T00:00:00Z</birthtime>
+</patient>

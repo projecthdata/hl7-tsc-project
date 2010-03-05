@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resultOrganizer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/result_organizer ../../../hdata-schemas/result_organizer.xsd"
+ xmlns="http://projecthdata.org/hdata/schemas/2009/06/result_organizer"
+ xmlns:result="http://projecthdata.org/hdata/schemas/2009/06/result"
+ xmlns:core="http://projecthdata.org/hdata/schemas/2009/06/core">
+    <organizerId root="7d5a02b0-67a4-11db-bd13-0800200c9a66"/>
+    <statusCode code="completed"/>
+    <code code="43419-1" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="Tuberculosis reaction wheal^3D post 1 TU ID:Diam:Pt:Skin:Qn:"/>
+    <effectiveTime>2010-02-09T07:02:01</effectiveTime>
+</resultOrganizer>
