@@ -25,43 +25,6 @@
 						</root>
 					</data>
 				</component>
-				<component name="document" library="xml" uid="1" kind="14">
-					<properties XSLTTargetEncoding="UTF-8"/>
-					<view ltx="2" lty="469" rbx="302" rby="669"/>
-					<data>
-						<root scrollposition="1">
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="http://projecthdata.org/hdata/schemas/2009/06/result_organizer"/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="2" expanded="1">
-								<entry name="document" ns="2" expanded="1">
-									<entry name="resultOrganizer" ns="1" expanded="1">
-										<entry name="organizerId" ns="1" expanded="1">
-											<entry name="root" type="attribute" outkey="110145496"/>
-											<entry name="extension" type="attribute" outkey="110145712"/>
-										</entry>
-										<entry name="statusCode" ns="1" expanded="1">
-											<entry name="code" type="attribute" outkey="110146176"/>
-										</entry>
-										<entry name="code" ns="1">
-											<entry name="code" type="attribute" outkey="110146424"/>
-											<entry name="codeSystem" type="attribute" outkey="110146672"/>
-											<entry name="codeSystemName" type="attribute" outkey="110147136"/>
-											<entry name="displayName" type="attribute" outkey="110145928"/>
-										</entry>
-										<entry name="effectiveTime" ns="1" outkey="110136616"/>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="..\hdata-schemas\result_organizer.xsd" outputinstance="..\hdata-schemas\result_organizer.xml" instanceroot="{http://projecthdata.org/hdata/schemas/2009/06/result_organizer}resultOrganizer" userdefinedschemalocation="Z:/projects/hl7-tsc-project/hdata-schemas/result_organizer.xsd"/>
-						<wsdl/>
-					</data>
-				</component>
 				<component name="document" library="xml" uid="2" kind="14">
 					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
 					<view ltx="410" rbx="977" rby="741"/>
@@ -164,6 +127,43 @@
 					<view ltx="86" lty="331"/>
 					<data>
 						<constant value="BATTERY" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="1" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view ltx="2" lty="469" rbx="302" rby="669"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="http://projecthdata.org/hdata/schemas/2009/06/result_organizer"/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="2" expanded="1">
+								<entry name="document" ns="2" expanded="1">
+									<entry name="resultOrganizer" ns="1" expanded="1">
+										<entry name="organizerId" ns="1" expanded="1">
+											<entry name="root" type="attribute" outkey="110145496"/>
+											<entry name="extension" type="attribute" outkey="110145712"/>
+										</entry>
+										<entry name="statusCode" ns="1" expanded="1">
+											<entry name="code" type="attribute" outkey="110146176"/>
+										</entry>
+										<entry name="code" ns="1">
+											<entry name="code" type="attribute" outkey="110146424"/>
+											<entry name="codeSystem" type="attribute" outkey="110146672"/>
+											<entry name="codeSystemName" type="attribute" outkey="110147136"/>
+											<entry name="displayName" type="attribute" outkey="110145928"/>
+										</entry>
+										<entry name="effectiveTime" ns="1" outkey="110136616"/>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\hdata-schemas\result_organizer.xsd" inputinstance="..\hdata-examples\simple\result_organizers\7d5a02b0-67a4-11db-bd13-0800200c9a66.xml" outputinstance="..\hdata-schemas\result_organizer.xml" instanceroot="{http://projecthdata.org/hdata/schemas/2009/06/result_organizer}resultOrganizer" userdefinedschemalocation="Z:/projects/hl7-tsc-project/hdata-schemas/result_organizer.xsd"/>
 						<wsdl/>
 					</data>
 				</component>
