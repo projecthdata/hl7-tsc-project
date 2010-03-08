@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<result xmlns="http://projecthdata.org/hdata/schemas/2009/06/result"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://projecthdata.org/hdata/schemas/2009/06/result file:/Users/andrewg/projects/hData/schemas/2009/06/result.xsd">
+    <resultId root="7d5a02b0-67a4-11db-bd13-0800200c9a67"/>
+    <resultDateTime low="2008-06-13T08:46:00Z"/>
+    <resultType code="1504-0" codeSystem="2.16.840.1.113883.6.1" codeSystemName="LOINC" displayName="GLUCOSE 1 HR POST 50 GM"/>
+    <resultStatus code="completed"/>
+    <resultValue>
+        <value>101</value>
+        <units>mg/dl</units>
+    </resultValue>
+    <narrative>101 mg/dl GLUCOSE 1 HR POST 50 GM at 8:46 AM June 13, 2008</narrative>
+</result>
