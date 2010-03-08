@@ -165,6 +165,17 @@ http://www.altova.com/mapforce
 													</xsl:for-each>
 												</high>
 											</effectiveTime>
+											<value>
+											    <xsl:attribute name="type" namespace="xsi">
+											        <xsl:value-of select="'PQ'"/>
+										        </xsl:attribute>
+										        <xsl:attribute name="value">
+											        <xsl:value-of select="//ns0:resultValue/ns0:value/text()"/>
+										        </xsl:attribute>
+										        <xsl:attribute name="unit">
+											        <xsl:value-of select="//ns0:resultValue/ns0:units/text()"/>
+										        </xsl:attribute>
+										    </value>
 										</observation>
 									</component>
 								</organizer>
