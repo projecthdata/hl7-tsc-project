@@ -1,0 +1,694 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mapping xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" version="13">
+	<component name="defaultmap1" blackbox="0" editable="1">
+		<properties SelectedLanguage="xslt"/>
+		<structure>
+			<children>
+				<component name="document" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="615" lty="15" rbx="1050" rby="457"/>
+					<data>
+						<root scrollposition="1">
+							<header>
+								<namespaces>
+									<namespace uid="http://projecthdata.org/hdata/schemas/2009/06/core"/>
+									<namespace/>
+									<namespace uid="http://projecthdata.org/hdata/schemas/2009/06/patient_information"/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="3" expanded="1">
+								<entry name="document" ns="3" expanded="1">
+									<entry name="patient" ns="2" expanded="1">
+										<entry name="name">
+											<entry name="title" inpkey="86412256"/>
+											<entry name="given" inpkey="86433336"/>
+											<entry name="lastname" inpkey="86425640"/>
+											<entry name="suffix" inpkey="86392896"/>
+										</entry>
+										<entry name="address">
+											<entry name="streetAddress" inpkey="86458288"/>
+											<entry name="city" inpkey="86442912"/>
+											<entry name="stateOrProvince" inpkey="86392328"/>
+											<entry name="zip" inpkey="86457624"/>
+											<entry name="country" inpkey="86450824"/>
+										</entry>
+										<entry name="telecom">
+											<entry name="value" ns="1" type="attribute" inpkey="86451488"/>
+											<entry name="use" ns="1" type="attribute" inpkey="86364600"/>
+										</entry>
+										<entry name="id" ns="2" inpkey="86404352"/>
+										<entry name="gender" ns="2">
+											<entry name="code" ns="1" type="attribute" inpkey="86069096"/>
+											<entry name="codeSystem" ns="1" type="attribute" inpkey="86250928"/>
+											<entry name="codeSystemName" ns="1" type="attribute" inpkey="86249592"/>
+											<entry name="displayName" ns="1" type="attribute" inpkey="86254456"/>
+										</entry>
+										<entry name="language" ns="2">
+											<entry name="code" ns="1" type="attribute" inpkey="86066864"/>
+											<entry name="displayName" ns="1" type="attribute" inpkey="86067328"/>
+										</entry>
+										<entry name="birthtime" ns="2" inpkey="86404016"/>
+										<entry name="maritialStatus" ns="2">
+											<entry name="code" ns="1" type="attribute" inpkey="86102888"/>
+											<entry name="codeSystem" ns="1" type="attribute" inpkey="86103008"/>
+											<entry name="codeSystemName" ns="1" type="attribute" inpkey="86134480"/>
+											<entry name="displayName" ns="1" type="attribute" inpkey="86131720"/>
+										</entry>
+										<entry name="race" ns="2">
+											<entry name="code" ns="1" type="attribute" inpkey="86706720"/>
+											<entry name="codeSystem" ns="1" type="attribute" inpkey="86682600"/>
+											<entry name="codeSystemName" ns="1" type="attribute" inpkey="86698136"/>
+											<entry name="displayName" ns="1" type="attribute" inpkey="86668368"/>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\hdata-schemas\patient.xsd" outputinstance="..\hdata-schemas\patient.xml" instanceroot="{http://projecthdata.org/hdata/schemas/2009/06/patient_information}patient" userdefinedschemalocation="Z:/projects/hl7-tsc-project/hdata-schemas/patient.xsd"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="document" library="xml" uid="1" kind="14">
+					<properties XSLTTargetEncoding="UTF-8"/>
+					<view rbx="302" rby="712"/>
+					<data>
+						<root scrollposition="134">
+							<header>
+								<namespaces>
+									<namespace uid="urn:hl7-org:v3"/>
+									<namespace/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="2" expanded="1">
+								<entry name="document" ns="2" expanded="1">
+									<entry name="ClinicalDocument" expanded="1">
+										<entry name="id" expanded="1"/>
+										<entry name="recordTarget" expanded="1">
+											<entry name="patientRole" expanded="1">
+												<entry name="id">
+													<entry name="root" ns="1" type="attribute" outkey="85620672"/>
+												</entry>
+												<entry name="addr">
+													<entry name="streetAddressLine" outkey="85631584"/>
+													<entry name="city" outkey="85631384"/>
+													<entry name="state" outkey="86456400"/>
+													<entry name="postalCode" outkey="79367528"/>
+													<entry name="country" outkey="85630376"/>
+												</entry>
+												<entry name="telecom">
+													<entry name="use" ns="1" type="attribute" outkey="85631760"/>
+													<entry name="value" ns="1" type="attribute" outkey="85632232"/>
+												</entry>
+												<entry name="patient" expanded="1">
+													<entry name="name">
+														<entry name="prefix" outkey="86329400"/>
+														<entry name="given" outkey="86455872"/>
+														<entry name="family" outkey="86448848"/>
+														<entry name="suffix" outkey="86216528"/>
+													</entry>
+													<entry name="administrativeGenderCode">
+														<entry name="code" ns="1" type="attribute" outkey="86070032"/>
+														<entry name="displayName" ns="1" type="attribute" outkey="86313008"/>
+														<entry name="codeSystemName" ns="1" type="attribute" outkey="86068864"/>
+														<entry name="codeSystem" ns="1" type="attribute" outkey="86252096"/>
+													</entry>
+													<entry name="birthTime" expanded="1">
+														<entry name="value" ns="1" type="attribute" outkey="85672704"/>
+													</entry>
+													<entry name="maritalStatusCode">
+														<entry name="code" ns="1" type="attribute" outkey="86053632"/>
+														<entry name="displayName" ns="1" type="attribute" outkey="86482672"/>
+														<entry name="codeSystemName" ns="1" type="attribute" outkey="86482792"/>
+														<entry name="codeSystem" ns="1" type="attribute" outkey="86075344"/>
+													</entry>
+													<entry name="raceCode">
+														<entry name="code" ns="1" type="attribute" outkey="86681936"/>
+														<entry name="displayName" ns="1" type="attribute" outkey="86708392"/>
+														<entry name="codeSystemName" ns="1" type="attribute" outkey="86532856"/>
+														<entry name="codeSystem" ns="1" type="attribute" outkey="86707032"/>
+													</entry>
+													<entry name="languageCommunication">
+														<entry name="languageCode" expanded="1">
+															<entry name="code" ns="1" type="attribute" outkey="86383280"/>
+															<entry name="displayName" ns="1" type="attribute" outkey="86383400"/>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\l32-schemas\L32_ClinicalDocument.xsd" outputinstance="..\l32-schemas\L32_ClinicalDocument.xml" instanceroot="{urn:hl7-org:v3}ClinicalDocument" userdefinedschemalocation="Z:/projects/hl7-tsc-project/l32-schemas/L32_ClinicalDocument.xsd"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="HL7 TS to XML DateTime" library="HL7" blackbox="0" uid="24" kind="19" visible="0">
+					<view ltx="430" lty="560" rbx="533" rby="577"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="arg" inpkey="86656048" componentid="6"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="result" outkey="86574864" componentid="3"/>
+						</root>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="79367528">
+						<edges>
+							<edge vertexkey="86457624" edgekey="86417976"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85620672">
+						<edges>
+							<edge vertexkey="86404352" edgekey="86419128"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85630376">
+						<edges>
+							<edge vertexkey="86450824" edgekey="86416320"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85631384">
+						<edges>
+							<edge vertexkey="86442912" edgekey="86342768"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85631584">
+						<edges>
+							<edge vertexkey="86458288" edgekey="86336840"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85631760">
+						<edges>
+							<edge vertexkey="86364600" edgekey="86416272"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85632232">
+						<edges>
+							<edge vertexkey="86451488" edgekey="86414072"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85672704">
+						<edges>
+							<edge vertexkey="86656048" edgekey="86017448"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86053632">
+						<edges>
+							<edge vertexkey="86102888" edgekey="86126824"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86068864">
+						<edges>
+							<edge vertexkey="86249592" edgekey="86133016"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86070032">
+						<edges>
+							<edge vertexkey="86069096" edgekey="86132536"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86075344">
+						<edges>
+							<edge vertexkey="86103008" edgekey="83205944"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86216528">
+						<edges>
+							<edge vertexkey="86392896" edgekey="86427456"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86252096">
+						<edges>
+							<edge vertexkey="86250928" edgekey="86135632"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86313008">
+						<edges>
+							<edge vertexkey="86254456" edgekey="86135488"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86329400">
+						<edges>
+							<edge vertexkey="86412256" edgekey="86446904"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86383280">
+						<edges>
+							<edge vertexkey="86066864" edgekey="86132248"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86383400">
+						<edges>
+							<edge vertexkey="86067328" edgekey="86064720"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86448848">
+						<edges>
+							<edge vertexkey="86425640" edgekey="86227880"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86455872">
+						<edges>
+							<edge vertexkey="86433336" edgekey="86447000"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86456400">
+						<edges>
+							<edge vertexkey="86392328" edgekey="86417896"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86482672">
+						<edges>
+							<edge vertexkey="86131720" edgekey="79263984"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86482792">
+						<edges>
+							<edge vertexkey="86134480" edgekey="76913128"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86532856">
+						<edges>
+							<edge vertexkey="86698136" edgekey="86586568"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86574864">
+						<edges>
+							<edge vertexkey="86404016" edgekey="86428600"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86681936">
+						<edges>
+							<edge vertexkey="86706720" edgekey="86589112"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86707032">
+						<edges>
+							<edge vertexkey="86682600" edgekey="86423424"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86708392">
+						<edges>
+							<edge vertexkey="86668368" edgekey="86595584"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="HL7 TS to XML DateTime" library="HL7" blackbox="0" editable="1" inline="1">
+		<properties/>
+		<description/>
+		<structure>
+			<children>
+				<component name="result" library="core" uid="3" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86775904"/>
+					</sources>
+					<view ltx="1145" lty="100"/>
+					<data>
+						<output datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="output" name="result"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="7" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="105300904"/>
+					</targets>
+					<view ltx="227" lty="33" rbx="22" rby="-282"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="8" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="105300504"/>
+					</targets>
+					<view ltx="227" lty="65" rbx="-100" rby="-313"/>
+					<data>
+						<constant value="4" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="11" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="105299264"/>
+					</targets>
+					<view ltx="84" lty="137" rbx="44" rby="-246"/>
+					<data>
+						<constant value="5" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="substring" library="core" uid="10" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86626672"/>
+						<datapoint pos="1" key="85885320"/>
+						<datapoint pos="2" key="105300104"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="105299944"/>
+					</targets>
+					<view ltx="169" lty="102" rbx="-44" rby="-333"/>
+				</component>
+				<component name="constant" library="core" uid="9" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="105300224"/>
+					</targets>
+					<view ltx="447" lty="265" rbx="-10" rby="-234"/>
+					<data>
+						<constant value="-" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="14" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="105297424"/>
+					</targets>
+					<view ltx="92" lty="251" rbx="35" rby="-218"/>
+					<data>
+						<constant value="7" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="substring" library="core" uid="13" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="105298264"/>
+						<datapoint pos="1" key="105298104"/>
+						<datapoint pos="2" key="105298384"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="105298544"/>
+					</targets>
+					<view ltx="173" lty="231" rbx="59" rby="-242"/>
+				</component>
+				<component name="constant" library="core" uid="15" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="105296784"/>
+					</targets>
+					<view ltx="461" lty="353" rbx="-29" rby="-273"/>
+					<data>
+						<constant value="T" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="substring" library="core" uid="4" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86760496"/>
+						<datapoint pos="1" key="86833368"/>
+						<datapoint pos="2" key="76888312"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="86310920"/>
+					</targets>
+					<view ltx="329" lty="-9" rbx="153" rby="-337"/>
+				</component>
+				<component name="substring" library="core" uid="16" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="77037336"/>
+						<datapoint pos="1" key="100011048"/>
+						<datapoint pos="2" key="86452664"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="85981096"/>
+					</targets>
+					<view ltx="174" lty="338" rbx="3" rby="-255"/>
+				</component>
+				<component name="substring" library="core" uid="17" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86389392"/>
+						<datapoint pos="1" key="86799136"/>
+						<datapoint pos="2" key="86830912"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="105363208"/>
+					</targets>
+					<view ltx="172" lty="442"/>
+				</component>
+				<component name="constant" library="core" uid="19" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="86405280"/>
+					</targets>
+					<view ltx="467" lty="397" rbx="-37" rby="-91"/>
+					<data>
+						<constant value=":" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="5" kind="5" growable="1" growablebasename="value">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86540896"/>
+						<datapoint pos="1" key="86430688"/>
+						<datapoint pos="2" key="85636376"/>
+						<datapoint pos="3" key="86622848"/>
+						<datapoint pos="4" key="105298824"/>
+						<datapoint pos="5" key="105298704"/>
+						<datapoint pos="6" key="86695616"/>
+						<datapoint pos="7" key="86587352"/>
+						<datapoint pos="8" key="86487272"/>
+						<datapoint pos="9" key="100054472"/>
+						<datapoint pos="10" key="104879152"/>
+						<datapoint pos="11" key="86803728"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="86359904"/>
+					</targets>
+					<view ltx="654" lty="237" rby="-219"/>
+				</component>
+				<component name="substring" library="core" uid="18" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="105326192"/>
+						<datapoint pos="1" key="86605744"/>
+						<datapoint pos="2" key="104881160"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="105346448"/>
+					</targets>
+					<view ltx="170" lty="538" rbx="-32" rby="-50"/>
+				</component>
+				<component name="constant" library="core" uid="20" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="86521232"/>
+					</targets>
+					<view ltx="470" lty="533" rbx="-178" rby="-16"/>
+					<data>
+						<constant value="Z" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="arg" library="core" uid="6" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="85886800"/>
+					</targets>
+					<view ltx="59" lty="-7" rbx="-651" rby="-167"/>
+					<data>
+						<input datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="input" name="arg"/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="12" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="105298984"/>
+					</targets>
+					<view ltx="84" lty="162" rbx="-8" rby="-274"/>
+					<data>
+						<constant value="2" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="21" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="79318696"/>
+					</targets>
+					<view ltx="88" lty="355" rbx="33" rby="10"/>
+					<data>
+						<constant value="9" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="22" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="86232448"/>
+					</targets>
+					<view ltx="87" lty="469"/>
+					<data>
+						<constant value="11" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="23" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="77017856"/>
+					</targets>
+					<view ltx="81" lty="568" rbx="6" rby="18"/>
+					<data>
+						<constant value="13" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="77017856">
+						<edges>
+							<edge vertexkey="86605744" edgekey="86465360"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="79318696">
+						<edges>
+							<edge vertexkey="100011048" edgekey="85799952"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85886800">
+						<edges>
+							<edge vertexkey="86760496" edgekey="86665776"/>
+							<edge vertexkey="86626672" edgekey="86706968"/>
+							<edge vertexkey="105298264" edgekey="99891536"/>
+							<edge vertexkey="77037336" edgekey="105340864"/>
+							<edge vertexkey="86389392" edgekey="86704856"/>
+							<edge vertexkey="105326192" edgekey="86233256"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="85981096">
+						<edges>
+							<edge vertexkey="86695616" edgekey="77078696"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86232448">
+						<edges>
+							<edge vertexkey="86799136" edgekey="105340912"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86310920">
+						<edges>
+							<edge vertexkey="86540896" edgekey="86439120"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86359904">
+						<edges>
+							<edge vertexkey="86775904" edgekey="76947088"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86405280">
+						<edges>
+							<edge vertexkey="86587352" edgekey="105437848"/>
+							<edge vertexkey="100054472" edgekey="86423544"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86521232">
+						<edges>
+							<edge vertexkey="86803728" edgekey="86072464"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105296784">
+						<edges>
+							<edge vertexkey="105298704" edgekey="105286120"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105297424">
+						<edges>
+							<edge vertexkey="105298104" edgekey="105286448"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105298544">
+						<edges>
+							<edge vertexkey="105298824" edgekey="105286216"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105298984">
+						<edges>
+							<edge vertexkey="105300104" edgekey="86138328"/>
+							<edge vertexkey="105298384" edgekey="86636144"/>
+							<edge vertexkey="86452664" edgekey="77087240"/>
+							<edge vertexkey="86830912" edgekey="86709520"/>
+							<edge vertexkey="104881160" edgekey="86483024"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105299264">
+						<edges>
+							<edge vertexkey="85885320" edgekey="86550512"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105299944">
+						<edges>
+							<edge vertexkey="85636376" edgekey="86592680"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105300224">
+						<edges>
+							<edge vertexkey="86430688" edgekey="86524976"/>
+							<edge vertexkey="86622848" edgekey="86253504"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105300504">
+						<edges>
+							<edge vertexkey="76888312" edgekey="86623064"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105300904">
+						<edges>
+							<edge vertexkey="86833368" edgekey="86827960"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105346448">
+						<edges>
+							<edge vertexkey="104879152" edgekey="86224144"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="105363208">
+						<edges>
+							<edge vertexkey="86487272" edgekey="88926064"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+</mapping>
