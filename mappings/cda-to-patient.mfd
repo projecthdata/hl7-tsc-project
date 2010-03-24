@@ -87,8 +87,8 @@
 										<entry name="id" expanded="1"/>
 										<entry name="recordTarget" expanded="1">
 											<entry name="patientRole" expanded="1">
-												<entry name="id">
-													<entry name="root" ns="1" type="attribute" outkey="85620672"/>
+												<entry name="id" expanded="1">
+													<entry name="extension" ns="1" type="attribute" outkey="86115488"/>
 												</entry>
 												<entry name="addr">
 													<entry name="streetAddressLine" outkey="85631584"/>
@@ -142,7 +142,7 @@
 								</entry>
 							</entry>
 						</root>
-						<document schema="..\l32-schemas\L32_ClinicalDocument.xsd" outputinstance="..\l32-schemas\L32_ClinicalDocument.xml" instanceroot="{urn:hl7-org:v3}ClinicalDocument" userdefinedschemalocation="Z:/projects/hl7-tsc-project/l32-schemas/L32_ClinicalDocument.xsd"/>
+						<document schema="..\l32-schemas\L32_ClinicalDocument.xsd" inputinstance="..\cda-examples\simple-example.xml" outputinstance="..\l32-schemas\L32_ClinicalDocument.xml" instanceroot="{urn:hl7-org:v3}ClinicalDocument" userdefinedschemalocation="Z:/projects/hl7-tsc-project/l32-schemas/L32_ClinicalDocument.xsd"/>
 						<wsdl/>
 					</data>
 				</component>
@@ -174,11 +174,6 @@
 					<vertex vertexkey="79367528">
 						<edges>
 							<edge vertexkey="86457624" edgekey="86417976"/>
-						</edges>
-					</vertex>
-					<vertex vertexkey="85620672">
-						<edges>
-							<edge vertexkey="86404352" edgekey="86419128"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="85630376">
@@ -229,6 +224,11 @@
 					<vertex vertexkey="86075344">
 						<edges>
 							<edge vertexkey="86103008" edgekey="83205944"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86115488">
+						<edges>
+							<edge vertexkey="86404352" edgekey="85999232"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="86216528">
@@ -411,17 +411,6 @@
 					</targets>
 					<view ltx="173" lty="231" rbx="59" rby="-242"/>
 				</component>
-				<component name="constant" library="core" uid="15" kind="2">
-					<properties/>
-					<targets>
-						<datapoint pos="0" key="105296784"/>
-					</targets>
-					<view ltx="461" lty="353" rbx="-29" rby="-273"/>
-					<data>
-						<constant value="T" datatype="string"/>
-						<wsdl/>
-					</data>
-				</component>
 				<component name="substring" library="core" uid="4" kind="5">
 					<properties/>
 					<sources>
@@ -433,74 +422,6 @@
 						<datapoint pos="0" key="86310920"/>
 					</targets>
 					<view ltx="329" lty="-9" rbx="153" rby="-337"/>
-				</component>
-				<component name="substring" library="core" uid="16" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="77037336"/>
-						<datapoint pos="1" key="100011048"/>
-						<datapoint pos="2" key="86452664"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="85981096"/>
-					</targets>
-					<view ltx="174" lty="338" rbx="3" rby="-255"/>
-				</component>
-				<component name="substring" library="core" uid="17" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="86389392"/>
-						<datapoint pos="1" key="86799136"/>
-						<datapoint pos="2" key="86830912"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="105363208"/>
-					</targets>
-					<view ltx="172" lty="442"/>
-				</component>
-				<component name="constant" library="core" uid="19" kind="2">
-					<properties/>
-					<targets>
-						<datapoint pos="0" key="86405280"/>
-					</targets>
-					<view ltx="467" lty="397" rbx="-37" rby="-91"/>
-					<data>
-						<constant value=":" datatype="string"/>
-						<wsdl/>
-					</data>
-				</component>
-				<component name="concat" library="core" uid="5" kind="5" growable="1" growablebasename="value">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="86540896"/>
-						<datapoint pos="1" key="86430688"/>
-						<datapoint pos="2" key="85636376"/>
-						<datapoint pos="3" key="86622848"/>
-						<datapoint pos="4" key="105298824"/>
-						<datapoint pos="5" key="105298704"/>
-						<datapoint pos="6" key="86695616"/>
-						<datapoint pos="7" key="86587352"/>
-						<datapoint pos="8" key="86487272"/>
-						<datapoint pos="9" key="100054472"/>
-						<datapoint pos="10" key="104879152"/>
-						<datapoint pos="11" key="86803728"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="86359904"/>
-					</targets>
-					<view ltx="654" lty="237" rby="-219"/>
-				</component>
-				<component name="substring" library="core" uid="18" kind="5">
-					<properties/>
-					<sources>
-						<datapoint pos="0" key="105326192"/>
-						<datapoint pos="1" key="86605744"/>
-						<datapoint pos="2" key="104881160"/>
-					</sources>
-					<targets>
-						<datapoint pos="0" key="105346448"/>
-					</targets>
-					<view ltx="170" lty="538" rbx="-32" rby="-50"/>
 				</component>
 				<component name="constant" library="core" uid="20" kind="2">
 					<properties/>
@@ -572,6 +493,148 @@
 						<wsdl/>
 					</data>
 				</component>
+				<component name="substring" library="core" uid="16" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="77037336"/>
+						<datapoint pos="1" key="100011048"/>
+						<datapoint pos="2" key="86452664"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="85981096"/>
+					</targets>
+					<view ltx="174" lty="338" rbx="3" rby="-255"/>
+				</component>
+				<component name="constant" library="core" uid="15" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="105296784"/>
+					</targets>
+					<view ltx="536" lty="347" rbx="46" rby="-279"/>
+					<data>
+						<constant value="T" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="19" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="86405280"/>
+					</targets>
+					<view ltx="537" lty="398" rbx="33" rby="-90"/>
+					<data>
+						<constant value=":" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="Double Zeros for Nothing" library="HL7" blackbox="0" uid="47" kind="19" visible="0">
+					<view ltx="321" lty="352" rbx="445" rby="369"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value1" inpkey="86381512" componentid="45"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value7" outkey="86933944" componentid="46"/>
+						</root>
+					</data>
+				</component>
+				<component name="concat" library="core" uid="5" kind="5" growable="1" growablebasename="value">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86540896"/>
+						<datapoint pos="1" key="86430688"/>
+						<datapoint pos="2" key="85636376"/>
+						<datapoint pos="3" key="86622848"/>
+						<datapoint pos="4" key="105298824"/>
+						<datapoint pos="5" key="105298704"/>
+						<datapoint pos="6" key="86695616"/>
+						<datapoint pos="7" key="86587352"/>
+						<datapoint pos="8" key="86487272"/>
+						<datapoint pos="9" key="100054472"/>
+						<datapoint pos="10" key="104879152"/>
+						<datapoint pos="11" key="86803728"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="86359904"/>
+					</targets>
+					<view ltx="654" lty="237" rby="-219"/>
+				</component>
+				<component name="substring" library="core" uid="17" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86389392"/>
+						<datapoint pos="1" key="86799136"/>
+						<datapoint pos="2" key="86830912"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="105363208"/>
+					</targets>
+					<view ltx="172" lty="442"/>
+				</component>
+				<component name="substring" library="core" uid="18" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="105326192"/>
+						<datapoint pos="1" key="86605744"/>
+						<datapoint pos="2" key="104881160"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="105346448"/>
+					</targets>
+					<view ltx="170" lty="538" rbx="-32" rby="-50"/>
+				</component>
+				<component name="Double Zeros for Nothing" library="HL7" blackbox="0" uid="48" kind="19" visible="0">
+					<view ltx="319" lty="438" rbx="443" rby="455"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value1" inpkey="88920184" componentid="45"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value7" outkey="86705336" componentid="46"/>
+						</root>
+					</data>
+				</component>
+				<component name="Double Zeros for Nothing" library="HL7" blackbox="0" uid="49" kind="19" visible="0">
+					<view ltx="313" lty="504" rbx="437" rby="521"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value1" inpkey="86415096" componentid="45"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="value7" outkey="86390320" componentid="46"/>
+						</root>
+					</data>
+				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
@@ -598,7 +661,7 @@
 					</vertex>
 					<vertex vertexkey="85981096">
 						<edges>
-							<edge vertexkey="86695616" edgekey="77078696"/>
+							<edge vertexkey="86381512" edgekey="104870904"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="86232448">
@@ -616,6 +679,11 @@
 							<edge vertexkey="86775904" edgekey="76947088"/>
 						</edges>
 					</vertex>
+					<vertex vertexkey="86390320">
+						<edges>
+							<edge vertexkey="104879152" edgekey="85992104"/>
+						</edges>
+					</vertex>
 					<vertex vertexkey="86405280">
 						<edges>
 							<edge vertexkey="86587352" edgekey="105437848"/>
@@ -625,6 +693,16 @@
 					<vertex vertexkey="86521232">
 						<edges>
 							<edge vertexkey="86803728" edgekey="86072464"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86705336">
+						<edges>
+							<edge vertexkey="86487272" edgekey="86214224"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86933944">
+						<edges>
+							<edge vertexkey="86695616" edgekey="87159608"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="105296784">
@@ -679,12 +757,138 @@
 					</vertex>
 					<vertex vertexkey="105346448">
 						<edges>
-							<edge vertexkey="104879152" edgekey="86224144"/>
+							<edge vertexkey="86415096" edgekey="86371504"/>
 						</edges>
 					</vertex>
 					<vertex vertexkey="105363208">
 						<edges>
-							<edge vertexkey="86487272" edgekey="88926064"/>
+							<edge vertexkey="88920184" edgekey="86123840"/>
+						</edges>
+					</vertex>
+				</vertices>
+			</graph>
+		</structure>
+	</component>
+	<component name="Double Zeros for Nothing" library="HL7" blackbox="0" editable="1" inline="1">
+		<properties/>
+		<description/>
+		<structure>
+			<children>
+				<component name="constant" library="core" uid="40" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="86718800"/>
+					</targets>
+					<view ltx="320" lty="66" rbx="-50" rby="-354"/>
+					<data>
+						<constant value="1" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="constant" library="core" uid="41" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="85997056"/>
+					</targets>
+					<view ltx="328" lty="97" rbx="-52" rby="-335"/>
+					<data>
+						<constant value="2" datatype="decimal"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="substring" library="core" uid="42" kind="5">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="104863808"/>
+						<datapoint pos="1" key="86541456"/>
+						<datapoint pos="2" key="86911232"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="86748872"/>
+					</targets>
+					<view ltx="395" lty="16" rbx="-214" rby="-587"/>
+				</component>
+				<component name="concat" library="core" uid="43" kind="5" growable="1" growablebasename="value">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86587808"/>
+						<datapoint pos="1" key="77071296"/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="86148152"/>
+					</targets>
+					<view ltx="278" rbx="-297" rby="-641"/>
+				</component>
+				<component name="constant" library="core" uid="44" kind="2">
+					<properties/>
+					<targets>
+						<datapoint pos="0" key="104849536"/>
+					</targets>
+					<view ltx="250" lty="101" rbx="-88" rby="-329"/>
+					<data>
+						<constant value="00" datatype="string"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="value1" library="core" uid="45" kind="6">
+					<properties/>
+					<sources>
+						<datapoint/>
+					</sources>
+					<targets>
+						<datapoint pos="0" key="104967536"/>
+					</targets>
+					<view/>
+					<data>
+						<input datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="input" name="value1"/>
+					</data>
+				</component>
+				<component name="value7" library="core" uid="46" kind="7">
+					<properties/>
+					<sources>
+						<datapoint pos="0" key="86037064"/>
+					</sources>
+					<view ltx="645" rbx="645"/>
+					<data>
+						<output datatype="string"/>
+						<wsdl/>
+						<parameter usageKind="output" name="value7"/>
+					</data>
+				</component>
+			</children>
+			<graph directed="1">
+				<edges/>
+				<vertices>
+					<vertex vertexkey="85997056">
+						<edges>
+							<edge vertexkey="86911232" edgekey="87024608"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86148152">
+						<edges>
+							<edge vertexkey="104863808" edgekey="104841800"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86718800">
+						<edges>
+							<edge vertexkey="86541456" edgekey="104961728"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="86748872">
+						<edges>
+							<edge vertexkey="86037064" edgekey="105477592"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="104849536">
+						<edges>
+							<edge vertexkey="77071296" edgekey="100003320"/>
+						</edges>
+					</vertex>
+					<vertex vertexkey="104967536">
+						<edges>
+							<edge vertexkey="86587808" edgekey="104845432"/>
 						</edges>
 					</vertex>
 				</vertices>

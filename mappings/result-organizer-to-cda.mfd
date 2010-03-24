@@ -4,92 +4,10 @@
 		<properties SelectedLanguage="xslt"/>
 		<structure>
 			<children>
-				<component name="XML DateTime to HL7 TS" library="HL7" blackbox="0" uid="37" kind="19" visible="0">
-					<view ltx="199" lty="735" rbx="302" rby="752"/>
-					<data>
-						<root>
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="arg" inpkey="105054840" componentid="20"/>
-						</root>
-						<root rootindex="1">
-							<header>
-								<namespaces>
-									<namespace/>
-								</namespaces>
-							</header>
-							<entry name="result" outkey="105044840" componentid="19"/>
-						</root>
-					</data>
-				</component>
-				<component name="document" library="xml" uid="2" kind="14">
-					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
-					<view ltx="410" rbx="977" rby="741"/>
-					<data>
-						<root scrollposition="99">
-							<header>
-								<namespaces>
-									<namespace/>
-									<namespace uid="urn:hl7-org:v3"/>
-									<namespace uid="http://www.altova.com/mapforce"/>
-								</namespaces>
-							</header>
-							<entry name="FileInstance" ns="2" expanded="1">
-								<entry name="document" ns="2" expanded="1">
-									<entry name="ClinicalDocument" ns="1" expanded="1">
-										<entry name="component" ns="1" expanded="1">
-											<entry name="structuredBody" ns="1" expanded="1">
-												<entry name="component" ns="1" expanded="1">
-													<entry name="section" ns="1" expanded="1">
-														<entry name="entry" ns="1" expanded="1">
-															<entry name="organizer" ns="1" expanded="1">
-																<entry name="classCode" type="attribute" inpkey="110127792"/>
-																<entry name="moodCode" type="attribute" inpkey="110128872"/>
-																<entry name="templateId" ns="1" expanded="1">
-																	<entry name="root" type="attribute" inpkey="110082688"/>
-																</entry>
-																<entry name="templateId" ns="1" expanded="1" clone="1">
-																	<entry name="root" type="attribute" inpkey="110075520"/>
-																</entry>
-																<entry name="id" ns="1" expanded="1">
-																	<entry name="root" type="attribute" inpkey="110190824"/>
-																	<entry name="extension" type="attribute" inpkey="110134864"/>
-																</entry>
-																<entry name="code" ns="1">
-																	<entry name="code" type="attribute" inpkey="110135120"/>
-																	<entry name="displayName" type="attribute" inpkey="110135376"/>
-																	<entry name="codeSystemName" type="attribute" inpkey="110135632"/>
-																	<entry name="codeSystem" type="attribute" inpkey="110135888"/>
-																</entry>
-																<entry name="statusCode" ns="1" expanded="1">
-																	<entry name="code" type="attribute" inpkey="110136104"/>
-																</entry>
-																<entry name="effectiveTime" ns="1" expanded="1">
-																	<entry name="high" ns="1" expanded="1">
-																		<entry name="value" type="attribute" inpkey="110107000"/>
-																	</entry>
-																</entry>
-															</entry>
-														</entry>
-													</entry>
-												</entry>
-											</entry>
-										</entry>
-									</entry>
-								</entry>
-							</entry>
-						</root>
-						<document schema="..\l32-schemas\L32_ClinicalDocument.xsd" outputinstance="..\l32-schemas\L32_ClinicalDocument.xml" instanceroot="{urn:hl7-org:v3}ClinicalDocument" userdefinedschemalocation="Z:/projects/hl7-tsc-project/l32-schemas/L32_ClinicalDocument.xsd"/>
-						<wsdl/>
-					</data>
-				</component>
 				<component name="constant" library="core" uid="38" kind="2">
 					<properties/>
 					<targets>
-						<datapoint pos="0" key="110074704"/>
+						<datapoint pos="0" key="76806568"/>
 					</targets>
 					<view ltx="64" lty="136"/>
 					<data>
@@ -100,7 +18,7 @@
 				<component name="constant" library="core" uid="39" kind="2">
 					<properties/>
 					<targets>
-						<datapoint pos="0" key="110074312"/>
+						<datapoint pos="0" key="76807000"/>
 					</targets>
 					<view ltx="74" lty="259"/>
 					<data>
@@ -111,7 +29,7 @@
 				<component name="constant" library="core" uid="40" kind="2">
 					<properties/>
 					<targets>
-						<datapoint pos="0" key="110075064"/>
+						<datapoint pos="0" key="76807432"/>
 					</targets>
 					<view ltx="88" lty="371"/>
 					<data>
@@ -122,7 +40,7 @@
 				<component name="constant" library="core" uid="41" kind="2">
 					<properties/>
 					<targets>
-						<datapoint pos="0" key="110017992"/>
+						<datapoint pos="0" key="76808200"/>
 					</targets>
 					<view ltx="86" lty="331"/>
 					<data>
@@ -146,19 +64,19 @@
 								<entry name="document" ns="2" expanded="1">
 									<entry name="resultOrganizer" ns="1" expanded="1">
 										<entry name="organizerId" ns="1" expanded="1">
-											<entry name="root" type="attribute" outkey="110145496"/>
-											<entry name="extension" type="attribute" outkey="110145712"/>
+											<entry name="root" type="attribute" outkey="77201208"/>
+											<entry name="extension" type="attribute" outkey="77201432"/>
 										</entry>
 										<entry name="statusCode" ns="1" expanded="1">
-											<entry name="code" type="attribute" outkey="110146176"/>
+											<entry name="code" type="attribute" outkey="77201656"/>
 										</entry>
 										<entry name="code" ns="1">
-											<entry name="code" type="attribute" outkey="110146424"/>
-											<entry name="codeSystem" type="attribute" outkey="110146672"/>
-											<entry name="codeSystemName" type="attribute" outkey="110147136"/>
-											<entry name="displayName" type="attribute" outkey="110145928"/>
+											<entry name="code" type="attribute" outkey="77201880"/>
+											<entry name="codeSystem" type="attribute" outkey="77202104"/>
+											<entry name="codeSystemName" type="attribute" outkey="77202328"/>
+											<entry name="displayName" type="attribute" outkey="77202512"/>
 										</entry>
-										<entry name="effectiveTime" ns="1" outkey="110136616"/>
+										<entry name="effectiveTime" ns="1" outkey="77201024"/>
 									</entry>
 								</entry>
 							</entry>
@@ -167,73 +85,153 @@
 						<wsdl/>
 					</data>
 				</component>
+				<component name="document" library="xml" uid="2" kind="14">
+					<properties XSLTTargetEncoding="UTF-8" XSLTDefaultOutput="1"/>
+					<view ltx="410" rbx="977" rby="741"/>
+					<data>
+						<root scrollposition="144">
+							<header>
+								<namespaces>
+									<namespace/>
+									<namespace uid="urn:hl7-org:v3"/>
+									<namespace uid="http://www.altova.com/mapforce"/>
+								</namespaces>
+							</header>
+							<entry name="FileInstance" ns="2" expanded="1">
+								<entry name="document" ns="2" expanded="1">
+									<entry name="ClinicalDocument" ns="1" expanded="1">
+										<entry name="component" ns="1" expanded="1">
+											<entry name="structuredBody" ns="1" expanded="1">
+												<entry name="component" ns="1" expanded="1">
+													<entry name="section" ns="1" expanded="1">
+														<entry name="entry" ns="1" expanded="1">
+															<entry name="organizer" ns="1" expanded="1">
+																<entry name="classCode" type="attribute" inpkey="77186232"/>
+																<entry name="moodCode" type="attribute" inpkey="77186400"/>
+																<entry name="templateId" ns="1" expanded="1">
+																	<entry name="root" type="attribute" inpkey="77186520"/>
+																</entry>
+																<entry name="templateId" ns="1" expanded="1" clone="1">
+																	<entry name="root" type="attribute" inpkey="77186640"/>
+																</entry>
+																<entry name="id" ns="1" expanded="1">
+																	<entry name="root" type="attribute" inpkey="77186760"/>
+																	<entry name="extension" type="attribute" inpkey="77186880"/>
+																</entry>
+																<entry name="code" ns="1">
+																	<entry name="code" type="attribute" inpkey="77187000"/>
+																	<entry name="displayName" type="attribute" inpkey="77187120"/>
+																	<entry name="codeSystemName" type="attribute" inpkey="77187240"/>
+																	<entry name="codeSystem" type="attribute" inpkey="77187360"/>
+																</entry>
+																<entry name="statusCode" ns="1" expanded="1">
+																	<entry name="code" type="attribute" inpkey="77187520"/>
+																</entry>
+																<entry name="effectiveTime" ns="1" expanded="1">
+																	<entry name="value" type="attribute" inpkey="77192800"/>
+																</entry>
+															</entry>
+														</entry>
+													</entry>
+												</entry>
+											</entry>
+										</entry>
+									</entry>
+								</entry>
+							</entry>
+						</root>
+						<document schema="..\l32-schemas\L32_ClinicalDocument.xsd" outputinstance="..\l32-schemas\L32_ClinicalDocument.xml" instanceroot="{urn:hl7-org:v3}ClinicalDocument" userdefinedschemalocation="Z:/projects/hl7-tsc-project/l32-schemas/L32_ClinicalDocument.xsd"/>
+						<wsdl/>
+					</data>
+				</component>
+				<component name="XML DateTime to HL7 TS" library="HL7" blackbox="0" uid="37" kind="19" visible="0">
+					<view ltx="199" lty="735" rbx="302" rby="752"/>
+					<data>
+						<root>
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="arg" inpkey="77124400" componentid="20"/>
+						</root>
+						<root rootindex="1">
+							<header>
+								<namespaces>
+									<namespace/>
+								</namespaces>
+							</header>
+							<entry name="result" outkey="77124640" componentid="19"/>
+						</root>
+					</data>
+				</component>
 			</children>
 			<graph directed="1">
 				<edges/>
 				<vertices>
-					<vertex vertexkey="105044840">
+					<vertex vertexkey="76806568">
 						<edges>
-							<edge vertexkey="110107000" edgekey="110144920"/>
+							<edge vertexkey="77186520" edgekey="77185592"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110017992">
+					<vertex vertexkey="76807000">
 						<edges>
-							<edge vertexkey="110127792" edgekey="110377616"/>
+							<edge vertexkey="77186640" edgekey="77185544"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110074312">
+					<vertex vertexkey="76807432">
 						<edges>
-							<edge vertexkey="110075520" edgekey="110373416"/>
+							<edge vertexkey="77186400" edgekey="77209832"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110074704">
+					<vertex vertexkey="76808200">
 						<edges>
-							<edge vertexkey="110082688" edgekey="110413672"/>
+							<edge vertexkey="77186232" edgekey="77185032"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110075064">
+					<vertex vertexkey="77124640">
 						<edges>
-							<edge vertexkey="110128872" edgekey="110371000"/>
+							<edge vertexkey="77192800" edgekey="68725704"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110136616">
+					<vertex vertexkey="77201024">
 						<edges>
-							<edge vertexkey="105054840" edgekey="110189648"/>
+							<edge vertexkey="77124400" edgekey="77209976"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110145496">
+					<vertex vertexkey="77201208">
 						<edges>
-							<edge vertexkey="110190824" edgekey="110263576"/>
+							<edge vertexkey="77186760" edgekey="77210120"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110145712">
+					<vertex vertexkey="77201432">
 						<edges>
-							<edge vertexkey="110134864" edgekey="104686616"/>
+							<edge vertexkey="77186880" edgekey="77210264"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110145928">
+					<vertex vertexkey="77201656">
 						<edges>
-							<edge vertexkey="110135376" edgekey="110125688"/>
+							<edge vertexkey="77187520" edgekey="77210552"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110146176">
+					<vertex vertexkey="77201880">
 						<edges>
-							<edge vertexkey="110136104" edgekey="110184872"/>
+							<edge vertexkey="77187000" edgekey="77210696"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110146424">
+					<vertex vertexkey="77202104">
 						<edges>
-							<edge vertexkey="110135120" edgekey="110184680"/>
+							<edge vertexkey="77187360" edgekey="77210840"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110146672">
+					<vertex vertexkey="77202328">
 						<edges>
-							<edge vertexkey="110135888" edgekey="110185496"/>
+							<edge vertexkey="77187240" edgekey="77210984"/>
 						</edges>
 					</vertex>
-					<vertex vertexkey="110147136">
+					<vertex vertexkey="77202512">
 						<edges>
-							<edge vertexkey="110135632" edgekey="110186264"/>
+							<edge vertexkey="77187120" edgekey="77210408"/>
 						</edges>
 					</vertex>
 				</vertices>

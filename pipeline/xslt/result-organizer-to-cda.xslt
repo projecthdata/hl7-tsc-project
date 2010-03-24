@@ -97,14 +97,12 @@ http://www.altova.com/mapforce
 										</xsl:for-each>
 									</statusCode>
 									<effectiveTime>
-										<high>
-											<xsl:for-each select="$var1_instance_result_organizer/ns0:resultOrganizer">
-												<xsl:variable name="var16_resultOrganizer" select="."/>
-												<xsl:attribute name="value" namespace="">
-													<xsl:value-of select="concat(concat(concat(concat(substring(string($var16_resultOrganizer/ns0:effectiveTime), 1, 4), substring(string($var16_resultOrganizer/ns0:effectiveTime), 6, 2)), substring(string($var16_resultOrganizer/ns0:effectiveTime), 9, 2)), substring(string($var16_resultOrganizer/ns0:effectiveTime), 12, 2)), substring(string($var16_resultOrganizer/ns0:effectiveTime), 15, 2))"/>
-												</xsl:attribute>
-											</xsl:for-each>
-										</high>
+										<xsl:for-each select="$var1_instance_result_organizer/ns0:resultOrganizer">
+											<xsl:variable name="var16_resultOrganizer" select="."/>
+											<xsl:attribute name="value" namespace="">
+												<xsl:value-of select="concat(concat(concat(concat(substring(string($var16_resultOrganizer/ns0:effectiveTime), 1, 4), substring(string($var16_resultOrganizer/ns0:effectiveTime), 6, 2)), substring(string($var16_resultOrganizer/ns0:effectiveTime), 9, 2)), substring(string($var16_resultOrganizer/ns0:effectiveTime), 12, 2)), substring(string($var16_resultOrganizer/ns0:effectiveTime), 15, 2))"/>
+											</xsl:attribute>
+										</xsl:for-each>
 									</effectiveTime>
 								</organizer>
 							</entry>
