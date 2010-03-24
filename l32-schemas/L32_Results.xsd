@@ -87,7 +87,11 @@
             <xs:element name="id" type="InstanceIdentifier"/>
             <xs:element name="code" type="ResultsCode"/>
             <xs:element name="statusCode" type="StatusCode"/>
-            <xs:element name="effectiveTime" type="DateRange"/>
+            <xs:element name="effectiveTime">
+                <xs:complexType>
+                    <xs:attribute name="value" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="component">
                 <xs:complexType>
                     <xs:sequence>
