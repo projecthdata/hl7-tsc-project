@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<project name="hData Pipeline" default="run-pipeline" basedir=".">
+<project name="hData Pipeline" default="usage" basedir=".">
     <description>
         Transform hData Records to CDA and back again
     </description>
@@ -10,11 +10,17 @@
        </fileset>
     </path>
     
-    <target name="run-pipeline">
+    <target name="hdata-to-cda">
         <java classname="com.xmlcalabash.drivers.Main" fork="true" classpathref="class.path">
             <jvmarg value="-Dcom.xmlcalabash.phonehome=false"/>
             <arg value="--debug"/>
-            <arg value="pipeline.xpl"/>
+            <arg value="hdata-to-cda.xpl"/>
         </java>
+    </target>
+    
+    <target name="usage">
+        <echo>You can run the following targets:</echo>
+        <echo>  cda-to-hdata: Tranforms a sample CDA document into an hData Record</echo>
+        <echo>  hdata-to-cda: Tranforms an hData Record into a CDA document</echo>
     </target>
 </project>
