@@ -18,6 +18,19 @@
         </java>
     </target>
     
+    <target name="clean-tmp-hdata">
+        <delete dir="tmp-hdata"/>
+    </target>
+    
+    <target name="cda-to-hdata" depends="clean-tmp-hdata">
+        <mkdir dir="tmp-hdata"/>
+        <java classname="com.xmlcalabash.drivers.Main" fork="true" classpathref="class.path">
+            <jvmarg value="-Dcom.xmlcalabash.phonehome=false"/>
+            <arg value="--debug"/>
+            <arg value="cda-to-hdata.xpl"/>
+        </java>
+    </target>
+    
     <target name="usage">
         <echo>You can run the following targets:</echo>
         <echo>  cda-to-hdata: Tranforms a sample CDA document into an hData Record</echo>
