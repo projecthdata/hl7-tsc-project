@@ -146,24 +146,12 @@ http://www.altova.com/mapforce
 												</xsl:for-each>
 											</statusCode>
 											<effectiveTime>
-												<low>
-													<xsl:for-each select="$var1_instance_result/ns0:result">
-														<xsl:variable name="var16_result" select="."/>
-														<xsl:attribute name="value" namespace="">
-															<xsl:value-of select="concat(concat(concat(concat(substring(string($var16_result/ns0:resultDateTime/@low), 1, 4), substring(string($var16_result/ns0:resultDateTime/@low), 6, 2)), substring(string($var16_result/ns0:resultDateTime/@low), 9, 2)), substring(string($var16_result/ns0:resultDateTime/@low), 12, 2)), substring(string($var16_result/ns0:resultDateTime/@low), 15, 2))"/>
-														</xsl:attribute>
-													</xsl:for-each>
-												</low>
-												<high>
-													<xsl:for-each select="$var1_instance_result/ns0:result">
-														<xsl:variable name="var18_result" select="."/>
-														<xsl:if test="$var18_result/ns0:resultDateTime/@high">
-															<xsl:attribute name="value" namespace="">
-																<xsl:value-of select="concat(concat(concat(concat(substring(string($var18_result/ns0:resultDateTime/@high), 1, 4), substring(string($var18_result/ns0:resultDateTime/@high), 6, 2)), substring(string($var18_result/ns0:resultDateTime/@high), 9, 2)), substring(string($var18_result/ns0:resultDateTime/@high), 12, 2)), substring(string($var18_result/ns0:resultDateTime/@high), 15, 2))"/>
-															</xsl:attribute>
-														</xsl:if>
-													</xsl:for-each>
-												</high>
+												<xsl:for-each select="$var1_instance_result/ns0:result">
+													<xsl:variable name="var16_result" select="."/>
+													<xsl:attribute name="value" namespace="">
+														<xsl:value-of select="concat(concat(concat(concat(substring(string($var16_result/ns0:resultDateTime/@low), 1, 4), substring(string($var16_result/ns0:resultDateTime/@low), 6, 2)), substring(string($var16_result/ns0:resultDateTime/@low), 9, 2)), substring(string($var16_result/ns0:resultDateTime/@low), 12, 2)), substring(string($var16_result/ns0:resultDateTime/@low), 15, 2))"/>
+													</xsl:attribute>
+												</xsl:for-each>
 											</effectiveTime>
 											<value>
 											    <xsl:attribute name="type" namespace="xsi">
