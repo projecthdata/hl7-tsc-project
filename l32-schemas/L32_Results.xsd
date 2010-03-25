@@ -147,7 +147,11 @@
             <xs:element name="id" type="InstanceIdentifier"/>
             <xs:element name="code" type="ResultType"/>
             <xs:element name="statusCode" type="StatusCode"/>
-            <xs:element name="effectiveTime" type="DateRange"/>
+            <xs:element name="effectiveTime">
+                <xs:complexType>
+                    <xs:attribute name="value" type="xs:string"/>
+                </xs:complexType>
+            </xs:element>
             <xs:element name="value" type="ANY"/>  <!-- CCD CONF-417: SHALL be expressed using UCUM expression when physical quantity -->
             <xs:element name="interpretationCode" type="GenericCode" minOccurs="0"/>
             <xs:element name="informant" type="InformantOrPerformer" maxOccurs="unbounded"/> <!-- CCD CONF-421: A result observation SHALL contain one or more sources of information -->
