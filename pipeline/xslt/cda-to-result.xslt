@@ -84,6 +84,14 @@ http://www.altova.com/mapforce
 					</xsl:if>
 				</xsl:for-each>
 			</resultStatus>
+			<resultValue>
+                <value>
+                    <xsl:value-of select="//ns0:value/@value"/>
+                </value>
+                <units>
+                    <xsl:value-of select="//ns0:value/@unit"/>
+                </units>
+		    </resultValue>
 		</result>
 	</xsl:template>
 </xsl:stylesheet>
