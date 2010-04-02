@@ -42,6 +42,7 @@ This will create a CDA Document in the output stream based on the hData Record i
 ## License
 
 Copyright 2010 The MITRE Corporation
+MITRE Public Release Case Number: 10-1392
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
